@@ -769,6 +769,7 @@ a:focus {
 }
 
 .service .service-text {
+    text-align: justify;
     position: relative;
     width: calc(100% - 120px);
     padding: 0 30px;

@@ -914,9 +914,81 @@ a:focus {
     border-color: #EF233C;
 }
 
+/* Technology Filter Dropdown Styles */
+.dropdown-filter-tech {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-filter-tech .btn {
+    background: #EF233C;
+    border: 2px solid transparent;
+    color: #ffffff;
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 0;
+    box-shadow: inset 0 0 0 50px #EF233C;
+    transition: ease-out 0.3s;
+    text-decoration: none;
+}
+
+.dropdown-filter-tech .btn:hover {
+    color: #EF233C;
+    background: transparent;
+    box-shadow: inset 0 0 0 0 #EF233C;
+    border-color: #EF233C;
+}
+
+.dropdown-filter-tech .dropdown-menu {
+    background: #ffffff;
+    border: 2px solid #EF233C;
+    border-radius: 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+    margin-top: 5px;
+    max-height: 300px;
+    overflow-y: auto;
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    min-width: 200px;
+    list-style: none;
+}
+
+.dropdown-filter-tech .dropdown-item {
+    color: #414141;
+    padding: 8px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: none;
+    background: transparent;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    text-align: left;
+}
+
+.dropdown-filter-tech .dropdown-item:hover {
+    background: #EF233C;
+    color: #ffffff;
+}
+
+.dropdown-filter-tech .dropdown-item:focus {
+    background: #EF233C;
+    color: #ffffff;
+    outline: none;
+}
+
 .portfolio .portfolio-item {
     position: relative;
     margin-bottom: 30px;
+    transition: all 0.6s ease;
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* Flip Card Styles */
@@ -1061,21 +1133,90 @@ a:focus {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
+/* Stage Card Specific Styles */
+.stage-card {
+    margin-bottom: 30px;
+}
+
+.stage-image {
+    width: 100%;
+    height: 180px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.stage-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.flip-card:hover .stage-image img {
+    transform: scale(1.05);
+}
+
+.stage-title h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #414141;
+    margin: 0 0 8px 0;
+}
+
+.stage-title p {
+    font-size: 13px;
+    color: #797979;
+    margin: 0 0 15px 0;
+    font-style: italic;
+}
+
+.stage-meta {
+    margin-top: 10px;
+}
+
+.stage-meta p {
+    font-size: 12px;
+    color: #797979;
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+}
+
+.stage-meta i, .project-meta i {
+    margin-right: 8px;
+    width: 15px;
+    color: #EF233C;
+}
+
+.project-meta {
+    margin-top: 10px;
+}
+
+.project-meta p {
+    font-size: 12px;
+    color: #797979;
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .flip-card {
         height: 300px;
     }
     
-    .project-image {
+    .project-image, .stage-image {
         height: 150px;
     }
     
-    .project-title h3 {
+    .project-title h3, .stage-title h3 {
         font-size: 18px;
     }
     
-    .project-title p {
+    .project-title p, .stage-title p {
         font-size: 13px;
     }
     
@@ -1086,6 +1227,10 @@ a:focus {
     
     .technologies h4 {
         font-size: 16px;
+    }
+    
+    .stage-meta p {
+        font-size: 11px;
     }
 }
 

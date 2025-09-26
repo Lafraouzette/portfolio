@@ -340,7 +340,7 @@
                             <div class="highlight-item">
                                 <i class="fas fa-code text-danger"></i>
                                 <span>Technologies modernes : <span class="text-danger">SQL</span>, <span
-                                        class="text-danger">Java</span>, <span class="text-danger">Spring</span></span>
+                                        class="text-danger">Java</span>, <span class="text-danger">Spring Boot</span></span>
                             </div>
                             <div class="highlight-item">
                                 <i class="fas fa-laptop-code text-danger"></i>
@@ -738,9 +738,7 @@
         </div>
         <div class="banner-text" style="max-width: 800px; margin: 0 auto; font-size: 16px; line-height: 1.8;">
             <p style="text-align: justify;">
-                En poste actuellement, je me spécialise dans les pratiques de développement, DevOps et DevSecOps, avec
-                un focus sur l’automatisation, la sécurité et le déploiement continu.
-                <br><br>
+               
                 Mon objectif est d’évoluer d’ici deux ans vers un rôle d’Architecte Systèmes & Sécurité, capable de
                 concevoir des infrastructures robustes et sécurisées.
             </p>
@@ -873,13 +871,13 @@
             dropdownButton.addEventListener('click', function(e) {
                 e.preventDefault();
                 e.stopPropagation();
-                dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+                dropdownMenu.classList.toggle('show');
             });
             
             // Close dropdown when clicking outside
             document.addEventListener('click', function(e) {
                 if (!dropdownButton.contains(e.target) && !dropdownMenu.contains(e.target)) {
-                    dropdownMenu.style.display = 'none';
+                    dropdownMenu.classList.remove('show');
                 }
             });
             
@@ -894,7 +892,7 @@
                     dropdownButton.innerHTML = selectedTech + ' <i class="fas fa-chevron-down"></i>';
                     
                     // Close dropdown
-                    dropdownMenu.style.display = 'none';
+                    dropdownMenu.classList.remove('show');
                     
                     // Remove active class from all filter items
                     document.querySelectorAll('#portfolio-filter li').forEach(li => {
@@ -905,15 +903,18 @@
                     dropdownButton.parentElement.classList.add('filter-active');
                     
                     // Filter portfolio items with animation
+                    let visibleIndex = 0;
                     portfolioItems.forEach((portfolioItem, index) => {
                         const itemTechs = portfolioItem.getAttribute('data-tech');
                         
                         if (itemTechs && itemTechs.includes(selectedTech)) {
                             // Show item with staggered animation
                             setTimeout(() => {
-                                portfolioItem.style.display = 'block';
+                                portfolioItem.style.display = 'flex';
                                 portfolioItem.style.opacity = '0';
                                 portfolioItem.style.transform = 'translateY(30px)';
+                                portfolioItem.style.visibility = 'visible';
+                                portfolioItem.style.order = visibleIndex;
                                 
                                 // Animate in
                                 setTimeout(() => {
@@ -921,12 +922,14 @@
                                     portfolioItem.style.opacity = '1';
                                     portfolioItem.style.transform = 'translateY(0)';
                                 }, 50);
-                            }, index * 100);
+                            }, visibleIndex * 100);
+                            visibleIndex++;
                         } else {
-                            // Hide item with animation
+                            // Hide item immediately to avoid layout issues
                             portfolioItem.style.transition = 'all 0.3s ease';
                             portfolioItem.style.opacity = '0';
-                            portfolioItem.style.transform = 'translateY(-30px)';
+                            portfolioItem.style.transform = 'scale(0.8)';
+                            portfolioItem.style.visibility = 'hidden';
                             
                             setTimeout(() => {
                                 portfolioItem.style.display = 'none';
@@ -946,9 +949,11 @@
                 // Show all items with animation
                 portfolioItems.forEach((item, index) => {
                     setTimeout(() => {
-                        item.style.display = 'block';
+                        item.style.display = 'flex';
                         item.style.opacity = '0';
                         item.style.transform = 'translateY(30px)';
+                        item.style.visibility = 'visible';
+                        item.style.order = index;
                         
                         setTimeout(() => {
                             item.style.transition = 'all 0.6s ease';
@@ -978,23 +983,28 @@
                     dropdownButton.innerHTML = 'Filtrer par technologie <i class="fas fa-chevron-down"></i>';
                     
                     // Filter items based on class
+                    let visibleIndex = 0;
                     portfolioItems.forEach((portfolioItem, index) => {
                         if (filterValue === '*' || portfolioItem.classList.contains(filterValue.replace('.', ''))) {
                             setTimeout(() => {
-                                portfolioItem.style.display = 'block';
+                                portfolioItem.style.display = 'flex';
                                 portfolioItem.style.opacity = '0';
                                 portfolioItem.style.transform = 'translateY(30px)';
+                                portfolioItem.style.visibility = 'visible';
+                                portfolioItem.style.order = visibleIndex;
                                 
                                 setTimeout(() => {
                                     portfolioItem.style.transition = 'all 0.6s ease';
                                     portfolioItem.style.opacity = '1';
                                     portfolioItem.style.transform = 'translateY(0)';
                                 }, 50);
-                            }, index * 50);
+                            }, visibleIndex * 50);
+                            visibleIndex++;
                         } else {
                             portfolioItem.style.transition = 'all 0.3s ease';
                             portfolioItem.style.opacity = '0';
-                            portfolioItem.style.transform = 'translateY(-30px)';
+                            portfolioItem.style.transform = 'scale(0.8)';
+                            portfolioItem.style.visibility = 'hidden';
                             
                             setTimeout(() => {
                                 portfolioItem.style.display = 'none';

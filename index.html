@@ -80,11 +80,7 @@
                     <a href="#service" class="nav-item nav-link">Service</a>
                     <a href="#experience" class="nav-item nav-link">Formation</a>
                     <a href="#portfolio" class="nav-item nav-link">Mes Projets</a>
-
-                    <!--                     <a href="#price" class="nav-item nav-link">Price</a>
- --> <!-- <a href="#review" class="nav-item nav-link">Review</a> -->
-                    <!--                     <a href="#team" class="nav-item nav-link">Team</a>
- -->
+                    <a href="#formations" class="nav-item nav-link">Formations</a>
                     <a href="#contact" class="nav-item nav-link">Contact</a>
                 </div>
             </div>
@@ -413,34 +409,38 @@
                         <li data-filter=".filter-stage">Stages</li>
                         <li data-filter=".filter-personal">Projets Personnels</li>
                         <li data-filter=".filter-ai">Intelligence Artificielle</li>
-                        <li class="dropdown-filter-tech">
-                            <button class="btn" type="button" id="filterTechDropdown">
-                                Filtrer par technologie <i class="fas fa-chevron-down"></i>
-                            </button>
-                            <ul class="dropdown-menu" id="techDropdownMenu">
-                                <li><a class="dropdown-item" href="#" data-filter-tech="Laravel">Laravel</a></li>
-                                <li><a class="dropdown-item" href="#" data-filter-tech="PHP">PHP</a></li>
-                                <li><a class="dropdown-item" href="#" data-filter-tech="MySQL">MySQL</a></li>
-                                <li><a class="dropdown-item" href="#" data-filter-tech="Bootstrap">Bootstrap</a></li>
-                                <li><a class="dropdown-item" href="#" data-filter-tech="Python">Python</a></li>
-                                <li><a class="dropdown-item" href="#" data-filter-tech="OpenCV">OpenCV</a></li>
-                                <li><a class="dropdown-item" href="#" data-filter-tech="TensorFlow">TensorFlow</a></li>
-                                <li><a class="dropdown-item" href="#" data-filter-tech="Spring Boot">Spring Boot</a></li>
-                                <li><a class="dropdown-item" href="#" data-filter-tech="Java">Java</a></li>
-                                <li><a class="dropdown-item" href="#" data-filter-tech="Java EE">Java EE</a></li>
-                                <li><a class="dropdown-item" href="#" data-filter-tech="React">React</a></li>
-                                <li><a class="dropdown-item" href="#" data-filter-tech="Docker">Docker</a></li>
-                                <li><a class="dropdown-item" href="#" data-filter-tech="IBM Watson">IBM Watson</a></li>
-                                <li><a class="dropdown-item" href="#" data-filter-tech="HTML5">HTML5</a></li>
-                                <li><a class="dropdown-item" href="#" data-filter-tech="CSS3">CSS3</a></li>
-                                <li><a class="dropdown-item" href="#" data-filter-tech="JavaScript">JavaScript</a></li>
-                                <li><a class="dropdown-item" href="#" data-filter-tech="Computer Vision">Computer Vision</a></li>
-                                <li><a class="dropdown-item" href="#" data-filter-tech="Machine Learning">Machine Learning</a></li>
-                            </ul>
-                        </li>
                     </ul>
                 </div>
             </div>
+            
+            <!-- Technology Filter Badges -->
+            <div class="tech-filter-section">
+                <h5><i class="fas fa-code"></i> Filtrer par technologie</h5>
+                <div class="tech-badges-container">
+                    <span class="tech-badge-filter" data-filter-tech="Laravel"><i class="fab fa-laravel"></i> Laravel</span>
+                    <span class="tech-badge-filter" data-filter-tech="PHP"><i class="fab fa-php"></i> PHP</span>
+                    <span class="tech-badge-filter" data-filter-tech="MySQL"><i class="fas fa-database"></i> MySQL</span>
+                    <span class="tech-badge-filter" data-filter-tech="Bootstrap"><i class="fab fa-bootstrap"></i> Bootstrap</span>
+                    <span class="tech-badge-filter" data-filter-tech="Python"><i class="fab fa-python"></i> Python</span>
+                    <span class="tech-badge-filter" data-filter-tech="OpenCV"><i class="fas fa-eye"></i> OpenCV</span>
+                    <span class="tech-badge-filter" data-filter-tech="TensorFlow"><i class="fas fa-brain"></i> TensorFlow</span>
+                    <span class="tech-badge-filter" data-filter-tech="Spring Boot"><i class="fas fa-leaf"></i> Spring Boot</span>
+                    <span class="tech-badge-filter" data-filter-tech="Java"><i class="fab fa-java"></i> Java</span>
+                    <span class="tech-badge-filter" data-filter-tech="Java EE"><i class="fab fa-java"></i> Java EE</span>
+                    <span class="tech-badge-filter" data-filter-tech="React"><i class="fab fa-react"></i> React</span>
+                    <span class="tech-badge-filter" data-filter-tech="Docker"><i class="fab fa-docker"></i> Docker</span>
+                    <span class="tech-badge-filter" data-filter-tech="IBM Watson"><i class="fab fa-ibm"></i> IBM Watson</span>
+                    <span class="tech-badge-filter" data-filter-tech="HTML5"><i class="fab fa-html5"></i> HTML5</span>
+                    <span class="tech-badge-filter" data-filter-tech="CSS3"><i class="fab fa-css3-alt"></i> CSS3</span>
+                    <span class="tech-badge-filter" data-filter-tech="JavaScript"><i class="fab fa-js"></i> JavaScript</span>
+                    <span class="tech-badge-filter" data-filter-tech="Computer Vision"><i class="fas fa-camera"></i> Computer Vision</span>
+                    <span class="tech-badge-filter" data-filter-tech="Machine Learning"><i class="fas fa-chart-line"></i> Machine Learning</span>
+                </div>
+                <button class="clear-tech-filters" id="clearTechFiltersBtn">
+                    <i class="fas fa-times"></i> Effacer les filtres
+                </button>
+            </div>
+            
             <div class="row portfolio-container">
                 <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-stage wow fadeInUp" data-wow-delay="0.2s" data-tech="Spring Boot MySQL React Docker">
                     <div class="flip-card">
@@ -725,6 +725,136 @@
     <!-- Portfolio End -->
 
 
+    <!-- Formations Start -->
+    <div class="formations" id="formations">
+        <div class="container">
+            <div class="section-header text-center wow zoomIn" data-wow-delay="0.1s">
+                <p>Nos Formations</p>
+                <h2>Développez vos compétences</h2>
+            </div>
+            <div class="row">
+                <!-- Formation 1 -->
+                <div class="col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="formation-card">
+                        <div class="formation-header">
+                            <div class="formation-icon">
+                                <i class="fab fa-react"></i>
+                            </div>
+                            <div class="formation-badge">Populaire</div>
+                        </div>
+                        <div class="formation-content">
+                            <h3>Développement Web Full-Stack</h3>
+                            <p class="formation-description">
+                                Maîtrisez les technologies modernes du développement web avec React, Node.js, et les bases de données.
+                            </p>
+                            <div class="formation-details">
+                                <div class="detail-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>40 heures</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>Max 15 personnes</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>Weekend</span>
+                                </div>
+                            </div>
+                            <div class="formation-price">
+                                <span class="price">1,200 MAD</span>
+                                <span class="price-original">1,500 MAD</span>
+                            </div>
+                            <button class="btn formation-btn" data-formation="Développement Web Full-Stack">
+                                S'inscrire maintenant
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formation 2 -->
+                <div class="col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="formation-card featured">
+                        <div class="formation-header">
+                            <div class="formation-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <div class="formation-badge">Recommandé</div>
+                        </div>
+                        <div class="formation-content">
+                            <h3>Intelligence Artificielle & Machine Learning</h3>
+                            <p class="formation-description">
+                                Découvrez l'IA et le Machine Learning avec Python, TensorFlow, et les algorithmes d'apprentissage automatique.
+                            </p>
+                            <div class="formation-details">
+                                <div class="detail-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>50 heures</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>Max 12 personnes</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>Soirée</span>
+                                </div>
+                            </div>
+                            <div class="formation-price">
+                                <span class="price">1,800 MAD</span>
+                                <span class="price-original">2,200 MAD</span>
+                            </div>
+                            <button class="btn formation-btn" data-formation="Intelligence Artificielle & Machine Learning">
+                                S'inscrire maintenant
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formation 3 -->
+                <div class="col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="formation-card">
+                        <div class="formation-header">
+                            <div class="formation-icon">
+                                <i class="fab fa-docker"></i>
+                            </div>
+                            <div class="formation-badge">Nouveau</div>
+                        </div>
+                        <div class="formation-content">
+                            <h3>DevOps & Cloud Computing</h3>
+                            <p class="formation-description">
+                                Apprenez Docker, Kubernetes, AWS, et les pratiques DevOps pour déployer des applications modernes.
+                            </p>
+                            <div class="formation-details">
+                                <div class="detail-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>45 heures</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>Max 10 personnes</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>Weekend</span>
+                                </div>
+                            </div>
+                            <div class="formation-price">
+                                <span class="price">2,000 MAD</span>
+                                <span class="price-original">2,500 MAD</span>
+                            </div>
+                            <button class="btn formation-btn" data-formation="DevOps & Cloud Computing">
+                                S'inscrire maintenant
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Formations End -->
+
+
     <!-- Banner Start -->
     <div class="banner wow zoomIn" data-wow-delay="0.1s"
         style="padding: 80px 0; background-color: #EF233C; color: #fff;">
@@ -758,7 +888,7 @@
     <!-- Banner End -->
 
     <!-- Contact Start -->
-    <!-- <div class="contact wow fadeInUp" data-wow-delay="0.1s" id="contact">
+     <div class="contact wow fadeInUp" data-wow-delay="0.1s" id="contact">
         <div class="container-fluid">
             <div class="container">
                 <div class="row align-items-center">
@@ -798,7 +928,7 @@
                 </div>
             </div>
         </div>
-    </div> -->
+    </div> 
     <!-- Contact End -->
 
 
@@ -854,6 +984,14 @@
     <!-- Contact Javascript File -->
     <script src="mail/jqBootstrapValidation.min.js"></script>
     <script src="mail/contact.js"></script>
+
+    <!-- EmailJS for email sending -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init("YOUR_PUBLIC_KEY"); // Remplacez par votre clé publique EmailJS
+        })();
+    </script>
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
@@ -1015,6 +1153,95 @@
             });
         });
     </script>
+
+    <!-- Formation Registration Modal -->
+    <div class="modal fade" id="formationModal" tabindex="-1" role="dialog" aria-labelledby="formationModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="formationModalLabel">
+                        <i class="fas fa-graduation-cap"></i> Inscription à la formation
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="formation-info">
+                        <h6 id="selectedFormation">Formation sélectionnée</h6>
+                        <p class="text-muted">Remplissez le formulaire ci-dessous pour réserver votre place</p>
+                    </div>
+                    
+                    <form id="formationForm" class="formation-form">
+                        <div class="form-group">
+                            <label for="fullName">Nom complet *</label>
+                            <input type="text" class="form-control" id="fullName" name="fullName" required>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Numéro de téléphone *</label>
+                            <input type="tel" class="form-control" id="phone" name="phone" required>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="experience">Niveau d'expérience</label>
+                            <select class="form-control" id="experience" name="experience">
+                                <option value="">Sélectionnez votre niveau</option>
+                                <option value="debutant">Débutant</option>
+                                <option value="intermediaire">Intermédiaire</option>
+                                <option value="avance">Avancé</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message (optionnel)</label>
+                            <textarea class="form-control" id="message" name="message" rows="3" placeholder="Dites-nous pourquoi vous souhaitez suivre cette formation..."></textarea>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="terms" name="terms" required>
+                            <label class="form-check-label" for="terms">
+                                J'accepte les <a href="#" class="terms-link">conditions d'inscription</a> *
+                            </label>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane"></i> Envoyer l'inscription
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content success-modal">
+                <div class="modal-body text-center">
+                    <div class="success-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h4>Inscription envoyée avec succès !</h4>
+                    <p>Nous avons reçu votre demande d'inscription. Nous vous contacterons dans les plus brefs délais pour confirmer votre place.</p>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Parfait !</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 
 </html>

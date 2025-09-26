@@ -989,7 +989,11 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script type="text/javascript">
         (function(){
-            emailjs.init("YOUR_PUBLIC_KEY"); // Remplacez par votre clé publique EmailJS
+            console.log('🔧 Initialisation d\'EmailJS...');
+            emailjs.init("waxHGzP2ruwujoBaC");
+            console.log('✅ EmailJS initialisé avec succès');
+            console.log('📧 Service ID: service_hehpk9l');
+            console.log('📝 Template ID: template_65fvvb2');
         })();
     </script>
 
@@ -999,25 +1003,10 @@
     <!-- Technology Filter Script -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Technology filter functionality
-            const techFilterItems = document.querySelectorAll('[data-filter-tech]');
+            // Technology filter functionality with badges
+            const techFilterItems = document.querySelectorAll('.tech-badge-filter');
             const portfolioItems = document.querySelectorAll('.portfolio-item');
-            const dropdownButton = document.getElementById('filterTechDropdown');
-            const dropdownMenu = document.getElementById('techDropdownMenu');
-            
-            // Toggle dropdown
-            dropdownButton.addEventListener('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                dropdownMenu.classList.toggle('show');
-            });
-            
-            // Close dropdown when clicking outside
-            document.addEventListener('click', function(e) {
-                if (!dropdownButton.contains(e.target) && !dropdownMenu.contains(e.target)) {
-                    dropdownMenu.classList.remove('show');
-                }
-            });
+            const clearFiltersBtn = document.getElementById('clearTechFiltersBtn');
             
             // Technology filter functionality
             techFilterItems.forEach(item => {
@@ -1026,131 +1015,86 @@
                     
                     const selectedTech = this.getAttribute('data-filter-tech');
                     
-                    // Update button text
-                    dropdownButton.innerHTML = selectedTech + ' <i class="fas fa-chevron-down"></i>';
+                    // Toggle active state
+                    this.classList.toggle('active');
                     
-                    // Close dropdown
-                    dropdownMenu.classList.remove('show');
-                    
-                    // Remove active class from all filter items
-                    document.querySelectorAll('#portfolio-filter li').forEach(li => {
-                        li.classList.remove('filter-active');
-                    });
-                    
-                    // Add active class to dropdown
-                    dropdownButton.parentElement.classList.add('filter-active');
-                    
-                    // Filter portfolio items with animation
-                    let visibleIndex = 0;
-                    portfolioItems.forEach((portfolioItem, index) => {
-                        const itemTechs = portfolioItem.getAttribute('data-tech');
-                        
-                        if (itemTechs && itemTechs.includes(selectedTech)) {
-                            // Show item with staggered animation
-                            setTimeout(() => {
-                                portfolioItem.style.display = 'flex';
-                                portfolioItem.style.opacity = '0';
-                                portfolioItem.style.transform = 'translateY(30px)';
-                                portfolioItem.style.visibility = 'visible';
-                                portfolioItem.style.order = visibleIndex;
-                                
-                                // Animate in
-                                setTimeout(() => {
-                                    portfolioItem.style.transition = 'all 0.6s ease';
-                                    portfolioItem.style.opacity = '1';
-                                    portfolioItem.style.transform = 'translateY(0)';
-                                }, 50);
-                            }, visibleIndex * 100);
-                            visibleIndex++;
-                        } else {
-                            // Hide item immediately to avoid layout issues
-                            portfolioItem.style.transition = 'all 0.3s ease';
-                            portfolioItem.style.opacity = '0';
-                            portfolioItem.style.transform = 'scale(0.8)';
-                            portfolioItem.style.visibility = 'hidden';
-                            
-                            setTimeout(() => {
-                                portfolioItem.style.display = 'none';
-                            }, 300);
-                        }
-                    });
+                    // Filter portfolio items
+                    filterPortfolioItems();
                 });
             });
             
-            // Reset filter when clicking "Tous"
-            document.querySelector('[data-filter="*"]').addEventListener('click', function() {
-                dropdownButton.innerHTML = 'Filtrer par technologie <i class="fas fa-chevron-down"></i>';
-                
-                // Remove active class from dropdown
-                dropdownButton.parentElement.classList.remove('filter-active');
-                
-                // Show all items with animation
-                portfolioItems.forEach((item, index) => {
-                    setTimeout(() => {
-                        item.style.display = 'flex';
-                        item.style.opacity = '0';
-                        item.style.transform = 'translateY(30px)';
-                        item.style.visibility = 'visible';
-                        item.style.order = index;
-                        
-                        setTimeout(() => {
-                            item.style.transition = 'all 0.6s ease';
-                            item.style.opacity = '1';
-                            item.style.transform = 'translateY(0)';
-                        }, 50);
-                    }, index * 50);
-                });
-            });
-            
-            // Handle other filter buttons (Stages, Projets Personnels, etc.)
-            document.querySelectorAll('#portfolio-filter li[data-filter]').forEach(filterBtn => {
-                filterBtn.addEventListener('click', function(e) {
+            // Clear all filters
+            if (clearFiltersBtn) {
+                clearFiltersBtn.addEventListener('click', function(e) {
                     e.preventDefault();
                     
-                    const filterValue = this.getAttribute('data-filter');
-                    
-                    // Remove active class from all filter items
-                    document.querySelectorAll('#portfolio-filter li').forEach(li => {
-                        li.classList.remove('filter-active');
+                    // Remove active class from all tech badges
+                    techFilterItems.forEach(item => {
+                        item.classList.remove('active');
                     });
                     
-                    // Add active class to clicked item
-                    this.classList.add('filter-active');
-                    
-                    // Reset dropdown button
-                    dropdownButton.innerHTML = 'Filtrer par technologie <i class="fas fa-chevron-down"></i>';
-                    
-                    // Filter items based on class
-                    let visibleIndex = 0;
-                    portfolioItems.forEach((portfolioItem, index) => {
-                        if (filterValue === '*' || portfolioItem.classList.contains(filterValue.replace('.', ''))) {
-                            setTimeout(() => {
-                                portfolioItem.style.display = 'flex';
-                                portfolioItem.style.opacity = '0';
-                                portfolioItem.style.transform = 'translateY(30px)';
-                                portfolioItem.style.visibility = 'visible';
-                                portfolioItem.style.order = visibleIndex;
-                                
-                                setTimeout(() => {
-                                    portfolioItem.style.transition = 'all 0.6s ease';
-                                    portfolioItem.style.opacity = '1';
-                                    portfolioItem.style.transform = 'translateY(0)';
-                                }, 50);
-                            }, visibleIndex * 50);
-                            visibleIndex++;
-                        } else {
-                            portfolioItem.style.transition = 'all 0.3s ease';
-                            portfolioItem.style.opacity = '0';
-                            portfolioItem.style.transform = 'scale(0.8)';
-                            portfolioItem.style.visibility = 'hidden';
-                            
-                            setTimeout(() => {
-                                portfolioItem.style.display = 'none';
-                            }, 300);
-                        }
+                    // Show all portfolio items
+                    portfolioItems.forEach(item => {
+                        item.style.display = 'block';
+                        item.style.opacity = '1';
+                        item.style.transform = 'translateY(0)';
                     });
                 });
-            });
+            }
+            
+            // Filter portfolio items based on active tech filters
+            function filterPortfolioItems() {
+                const activeTechs = Array.from(techFilterItems)
+                    .filter(item => item.classList.contains('active'))
+                    .map(item => item.getAttribute('data-filter-tech'));
+                
+                if (activeTechs.length === 0) {
+                    // Show all items if no filters are active
+                    portfolioItems.forEach(item => {
+                        item.style.display = 'block';
+                        item.style.opacity = '1';
+                        item.style.transform = 'translateY(0)';
+                    });
+                    return;
+                }
+                
+                // Filter items
+                let visibleIndex = 0;
+                portfolioItems.forEach((portfolioItem, index) => {
+                    const itemTechs = portfolioItem.getAttribute('data-tech');
+                    
+                    // Check if item contains any of the active techs
+                    const hasActiveTech = activeTechs.some(tech => 
+                        itemTechs && itemTechs.includes(tech)
+                    );
+                    
+                    if (hasActiveTech) {
+                        // Show item with staggered animation
+                        setTimeout(() => {
+                            portfolioItem.style.display = 'block';
+                            portfolioItem.style.opacity = '0';
+                            portfolioItem.style.transform = 'translateY(20px)';
+                            
+                            // Animate in
+                            setTimeout(() => {
+                                portfolioItem.style.transition = 'all 0.6s ease';
+                                portfolioItem.style.opacity = '1';
+                                portfolioItem.style.transform = 'translateY(0)';
+                            }, 50);
+                        }, visibleIndex * 100);
+                        visibleIndex++;
+                    } else {
+                        // Hide item with animation
+                        portfolioItem.style.transition = 'all 0.3s ease';
+                        portfolioItem.style.opacity = '0';
+                        portfolioItem.style.transform = 'translateY(-20px)';
+                        
+                        setTimeout(() => {
+                            portfolioItem.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            }
         });
     </script>
 

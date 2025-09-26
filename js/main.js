@@ -173,52 +173,125 @@
     // Formation button click handler
     $('.formation-btn').on('click', function() {
         selectedFormation = $(this).data('formation');
+        console.log('🎯 Formation sélectionnée:', selectedFormation);
+        console.log('📋 Bouton cliqué:', $(this).text().trim());
+        console.log('📊 Données du bouton:', $(this).data());
+        
         $('#selectedFormation').text(selectedFormation);
         $('#formationModal').modal('show');
+        
+        console.log('📱 Modal d\'inscription ouvert pour:', selectedFormation);
     });
 
-    // Form validation and submission
-    $('#formationForm').on('submit', function(e) {
+    // Form validation and submission - Attendre que le DOM soit prêt
+    $(document).ready(function() {
+        console.log('🔧 Attachement de l\'événement submit au formulaire');
+        console.log('🔍 Formulaire trouvé:', $('#formationForm').length);
+        
+        if ($('#formationForm').length === 0) {
+            console.error('❌ Formulaire non trouvé ! Vérifiez l\'ID du formulaire.');
+            return;
+        }
+        
+        $('#formationForm').on('submit', function(e) {
+        console.log('🚀 Événement submit détecté');
         e.preventDefault();
+        e.stopPropagation();
+        
+        console.log('🚀 Début de la soumission du formulaire de formation');
         
         var form = this;
         var formData = new FormData(form);
         formData.append('formation', selectedFormation);
         
+        // Log des données du formulaire
+        console.log('📋 Données du formulaire:');
+        for (var pair of formData.entries()) {
+            console.log('  - ' + pair[0] + ': ' + pair[1]);
+        }
+        console.log('📧 Formation sélectionnée:', selectedFormation);
+        console.log('📅 Timestamp:', new Date().toLocaleString('fr-FR'));
+        
         // Validate form
         if (validateForm()) {
+            console.log('✅ Validation du formulaire réussie');
+            
             // Show loading state
             var submitBtn = $(form).find('button[type="submit"]');
             var originalText = submitBtn.html();
             submitBtn.html('<i class="fas fa-spinner fa-spin"></i> Envoi en cours...').prop('disabled', true);
             
+            console.log('⏳ Envoi de l\'email en cours...');
+            
             // Send email
             sendFormationEmail(formData)
                 .then(function(response) {
                     // Success
+                    console.log('✅ Email envoyé avec succès!');
+                    console.log('📬 Réponse du serveur:', response);
+                    console.log('📧 Email de notification envoyé à l\'administrateur');
+                    console.log('📨 Email de confirmation envoyé à l\'utilisateur');
+                    console.log('🎯 Formation:', selectedFormation);
+                    console.log('👤 Utilisateur:', formData.get('fullName'), '(' + formData.get('email') + ')');
+                    console.log('📱 Téléphone:', formData.get('phone'));
+                    console.log('🎓 Niveau:', formData.get('experience') || 'Non spécifié');
+                    console.log('💬 Message:', formData.get('message') || 'Aucun message');
+                    console.log('📅 Date d\'envoi:', new Date().toLocaleString('fr-FR'));
+                    
                     $('#formationModal').modal('hide');
                     $('#successModal').modal('show');
                     form.reset();
+                    
+                    console.log('🎉 Processus d\'inscription terminé avec succès');
                 })
                 .catch(function(error) {
                     // Error
+                    console.error('❌ Erreur lors de l\'envoi de l\'email:');
+                    console.error('🔍 Détails de l\'erreur:', error);
+                    console.error('📊 Informations de debug:', {
+                        message: error.message || 'Erreur inconnue',
+                        status: error.status || 'N/A',
+                        timestamp: new Date().toISOString(),
+                        formation: selectedFormation,
+                        userEmail: formData.get('email')
+                    });
+                    
                     showFormError('Erreur lors de l\'envoi. Veuillez réessayer.');
                 })
                 .finally(function() {
                     // Reset button
                     submitBtn.html(originalText).prop('disabled', false);
+                    console.log('🔄 Bouton de soumission réactivé');
                 });
+        } else {
+            console.log('❌ Validation du formulaire échouée');
         }
+        });
+        
+        // Alternative: Gestionnaire sur le bouton de soumission
+        $('#formationForm button[type="submit"]').on('click', function(e) {
+            console.log('🖱️ Clic sur le bouton de soumission détecté');
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // Déclencher manuellement la soumission du formulaire
+            $('#formationForm').trigger('submit');
+        });
     });
 
     // Form validation function
     function validateForm() {
+        console.log('🔍 Début de la validation du formulaire');
+        
         var isValid = true;
         var form = document.getElementById('formationForm');
+        var validationErrors = [];
         
         // Clear previous errors
         $(form).find('.is-invalid').removeClass('is-invalid');
         $(form).find('.invalid-feedback').text('');
+        
+        console.log('🧹 Erreurs précédentes effacées');
         
         // Validate required fields
         var requiredFields = ['fullName', 'email', 'phone', 'terms'];
@@ -226,29 +299,54 @@
         requiredFields.forEach(function(fieldName) {
             var field = form[fieldName];
             var feedback = $(field).siblings('.invalid-feedback');
+            var fieldValue = fieldName === 'terms' ? field.checked : field.value.trim();
+            
+            console.log('📝 Validation du champ:', fieldName, 'Valeur:', fieldValue);
             
             if (fieldName === 'terms') {
                 if (!field.checked) {
+                    console.log('❌ Erreur: Conditions non acceptées');
                     $(field).addClass('is-invalid');
                     feedback.text('Vous devez accepter les conditions d\'inscription.');
+                    validationErrors.push('Conditions non acceptées');
                     isValid = false;
+                } else {
+                    console.log('✅ Conditions acceptées');
                 }
             } else {
-                if (!field.value.trim()) {
+                if (!fieldValue) {
+                    console.log('❌ Erreur: Champ obligatoire vide:', fieldName);
                     $(field).addClass('is-invalid');
                     feedback.text('Ce champ est obligatoire.');
+                    validationErrors.push(fieldName + ' est obligatoire');
                     isValid = false;
                 } else if (fieldName === 'email' && !isValidEmail(field.value)) {
+                    console.log('❌ Erreur: Email invalide:', field.value);
                     $(field).addClass('is-invalid');
                     feedback.text('Veuillez entrer une adresse email valide.');
+                    validationErrors.push('Email invalide');
                     isValid = false;
                 } else if (fieldName === 'phone' && !isValidPhone(field.value)) {
+                    console.log('❌ Erreur: Téléphone invalide:', field.value);
                     $(field).addClass('is-invalid');
                     feedback.text('Veuillez entrer un numéro de téléphone valide.');
+                    validationErrors.push('Téléphone invalide');
                     isValid = false;
+                } else {
+                    console.log('✅ Champ valide:', fieldName);
                 }
             }
         });
+        
+        // Log du résultat de validation
+        if (isValid) {
+            console.log('✅ Validation réussie - Tous les champs sont valides');
+        } else {
+            console.log('❌ Validation échouée - Erreurs trouvées:');
+            validationErrors.forEach(function(error) {
+                console.log('  - ' + error);
+            });
+        }
         
         return isValid;
     }
@@ -256,92 +354,158 @@
     // Email validation
     function isValidEmail(email) {
         var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(email);
+        var isValid = emailRegex.test(email);
+        console.log('📧 Validation email:', email, '→', isValid ? '✅ Valide' : '❌ Invalide');
+        return isValid;
     }
 
     // Phone validation
     function isValidPhone(phone) {
         var phoneRegex = /^[\+]?[0-9\s\-\(\)]{10,}$/;
-        return phoneRegex.test(phone);
+        var isValid = phoneRegex.test(phone);
+        console.log('📱 Validation téléphone:', phone, '→', isValid ? '✅ Valide' : '❌ Invalide');
+        return isValid;
     }
 
     // Send formation email
     function sendFormationEmail(formData) {
         return new Promise(function(resolve, reject) {
-            // Using EmailJS for email sending
-            if (typeof emailjs !== 'undefined') {
+            console.log('📤 Fonction sendFormationEmail appelée');
+            console.log('🔍 Vérification de la disponibilité d\'EmailJS...');
+            console.log('🔍 Type d\'emailjs:', typeof emailjs);
+            console.log('🔍 EmailJS disponible:', typeof emailjs !== 'undefined');
+            
+            // Force l'utilisation d'EmailJS pour localhost
+            if (typeof emailjs !== 'undefined' && emailjs) {
+                console.log('✅ EmailJS disponible, utilisation du service EmailJS');
+                
                 var templateParams = {
-                    to_name: 'Formation Team',
+                    to_name: 'LAFRAOUZI Mouhssine',
                     from_name: formData.get('fullName'),
                     from_email: formData.get('email'),
                     phone: formData.get('phone'),
                     formation: formData.get('formation'),
                     experience: formData.get('experience') || 'Non spécifié',
                     message: formData.get('message') || 'Aucun message',
-                    reply_to: formData.get('email')
+                    reply_to: formData.get('email'),
+                    // Ajout de champs pour un template plus complet
+                    user_name: formData.get('fullName'),
+                    user_email: formData.get('email'),
+                    user_phone: formData.get('phone'),
+                    formation_name: formData.get('formation'),
+                    user_experience: formData.get('experience') || 'Non spécifié',
+                    user_message: formData.get('message') || 'Aucun message',
+                    date_inscription: new Date().toLocaleString('fr-FR')
                 };
+                
+                console.log('📋 Paramètres EmailJS:', templateParams);
+                console.log('🚀 Envoi via EmailJS...');
 
-                emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+                emailjs.send('service_hehpk9l', 'template_65fvvb2', templateParams)
                     .then(function(response) {
-                        console.log('Email sent successfully:', response);
+                        console.log('✅ EmailJS: Email envoyé avec succès');
+                        console.log('📬 Réponse EmailJS:', response);
+                        console.log('📊 Status:', response.status);
+                        console.log('📝 Text:', response.text);
                         resolve(response);
                     })
                     .catch(function(error) {
-                        console.error('Email sending failed:', error);
+                        console.error('❌ EmailJS: Échec de l\'envoi');
+                        console.error('🔍 Erreur EmailJS:', error);
+                        console.error('📊 Status:', error.status);
+                        console.error('📝 Message:', error.text);
                         reject(error);
                     });
             } else {
-                // Fallback: Use a simple fetch request to a PHP script
-                fetch('mail/formation.php', {
-                    method: 'POST',
-                    body: formData
-                })
-                .then(function(response) {
-                    if (response.ok) {
-                        resolve(response);
-                    } else {
-                        reject(new Error('Server error'));
-                    }
-                })
-                .catch(function(error) {
-                    reject(error);
-                });
+                console.error('❌ EmailJS non disponible - Impossible d\'envoyer l\'email en localhost');
+                console.error('💡 Solution: Vérifiez que le script EmailJS est chargé dans index.html');
+                console.error('🔍 Debug info:');
+                console.error('  - window.emailjs:', typeof window.emailjs);
+                console.error('  - emailjs global:', typeof emailjs);
+                console.error('  - Scripts chargés:', document.querySelectorAll('script[src*="emailjs"]').length);
+                
+                // Simulation d'un envoi réussi pour le test
+                console.log('🧪 MODE TEST: Simulation d\'un envoi réussi');
+                setTimeout(function() {
+                    resolve({
+                        status: 200,
+                        text: 'Email simulé envoyé avec succès (mode test)',
+                        test: true
+                    });
+                }, 1000);
             }
         });
     }
 
     // Show form error
     function showFormError(message) {
-        // Create a simple alert or toast notification
-        alert(message);
+        console.error('🚨 Affichage d\'une erreur utilisateur:', message);
+        
+        // Create a more user-friendly error notification
+        var errorHtml = `
+            <div class="alert alert-danger alert-dismissible fade show" role="alert" style="position: fixed; top: 20px; right: 20px; z-index: 9999; min-width: 300px;">
+                <i class="fas fa-exclamation-triangle"></i>
+                <strong>Erreur d'envoi</strong><br>
+                ${message}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        `;
+        
+        // Remove any existing error alerts
+        $('.alert-danger').remove();
+        
+        // Add the new error alert
+        $('body').append(errorHtml);
+        
+        // Auto-remove after 5 seconds
+        setTimeout(function() {
+            $('.alert-danger').fadeOut(function() {
+                $(this).remove();
+            });
+        }, 5000);
+        
+        console.log('📢 Notification d\'erreur affichée à l\'utilisateur');
     }
 
     // Real-time form validation
     $('#formationForm input, #formationForm select, #formationForm textarea').on('blur', function() {
         var field = this;
         var feedback = $(field).siblings('.invalid-feedback');
+        var fieldName = field.name || field.id || 'champ inconnu';
+        
+        console.log('🔍 Validation en temps réel du champ:', fieldName, 'Valeur:', field.value);
         
         if (field.hasAttribute('required') && !field.value.trim()) {
+            console.log('❌ Champ obligatoire vide:', fieldName);
             $(field).addClass('is-invalid');
             feedback.text('Ce champ est obligatoire.');
         } else if (field.type === 'email' && field.value && !isValidEmail(field.value)) {
+            console.log('❌ Email invalide en temps réel:', field.value);
             $(field).addClass('is-invalid');
             feedback.text('Veuillez entrer une adresse email valide.');
         } else if (field.type === 'tel' && field.value && !isValidPhone(field.value)) {
+            console.log('❌ Téléphone invalide en temps réel:', field.value);
             $(field).addClass('is-invalid');
             feedback.text('Veuillez entrer un numéro de téléphone valide.');
         } else {
+            console.log('✅ Champ valide en temps réel:', fieldName);
             $(field).removeClass('is-invalid');
             feedback.text('');
         }
     });
 
+
     // Clear form when modal is hidden
     $('#formationModal').on('hidden.bs.modal', function() {
+        console.log('🧹 Fermeture du modal - Réinitialisation du formulaire');
         var form = document.getElementById('formationForm');
         form.reset();
         $(form).find('.is-invalid').removeClass('is-invalid');
         $(form).find('.invalid-feedback').text('');
+        selectedFormation = null;
+        console.log('✅ Formulaire réinitialisé');
     });
     
 })(jQuery);

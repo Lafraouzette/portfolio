@@ -368,7 +368,7 @@ a:focus {
     .hero .hero-text,
     .hero .hero-btn {
         width: 100%;
-        text-align: center;
+        text-align: left;
     }
     
     .hero .hero-text p {
@@ -597,7 +597,7 @@ a:focus {
     top: 48px;
     right: -8px;
     background: #ffffff;
-    border: 2px solid #EF233C;
+    border: 2px solid #4123ef;
     border-radius: 16px;
     z-index: 1;
 }
@@ -688,7 +688,7 @@ a:focus {
     padding: 10px;
     background: #f8f9fa;
     border-radius: 5px;
-    border-left: 3px solid #EF233C;
+    border-left: 3px solid #2623ef;
 }
 
 .skill-category strong {
@@ -811,7 +811,7 @@ a:focus {
 }
 
 .service .service-item:hover {
-    box-shadow: inset 800px 0 0 0 #EF233C;
+    box-shadow: inset 800px 0 0 0 #3B82F6;
 }
 
 .service .service-icon {
@@ -821,7 +821,7 @@ a:focus {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid #EF233C;
+    border: 1px solid #3B82F6;
     background: #ffffff;
 }
 
@@ -1012,7 +1012,7 @@ a:focus {
     display: block;
     margin: 0 auto;
     background: transparent;
-    border: 2px solid #EF233C;
+    border: 2px solid #3B82F6;
     color: #3B82F6;
     padding: 8px 20px;
     border-radius: 25px;
@@ -1269,7 +1269,7 @@ a:focus {
 }
 
 .formation-form .form-control.is-invalid {
-    border-color: #dc3545;
+    border-color: #354edc;
 }
 
 .formation-form .invalid-feedback {
@@ -1283,7 +1283,7 @@ a:focus {
 }
 
 .form-check-input:checked {
-    background-color: #EF233C;
+    background-color: #4823ef;
     border-color: #3B82F6;
 }
 
@@ -1345,7 +1345,7 @@ a:focus {
 
 .success-icon i {
     font-size: 60px;
-    color: #28a745;
+    color: #3B82F6;
 }
 
 .success-modal h4 {
@@ -1487,7 +1487,7 @@ a:focus {
 
 .clear-filters {
     background: transparent;
-    border: 1px solid #EF233C;
+    border: 1px solid #2623ef;
     color: #3B82F6;
     padding: 4px 12px;
     border-radius: 15px;
@@ -2103,7 +2103,7 @@ a:focus {
 }
 
 .team .team-item:hover {
-    box-shadow: inset 800px 0 0 0 #EF233C;
+    box-shadow: inset 800px 0 0 0 #3B82F6;
 }
 
 .team .team-item:hover .team-img img {

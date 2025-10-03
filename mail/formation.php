@@ -77,7 +77,7 @@ $email_content = "
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
         .header { 
-            background: linear-gradient(135deg, #EF233C 0%, #d63031 100%); 
+            background: linear-gradient(135deg, #3B82F6 0%, #d63031 100%); 
             color: white; 
             padding: 30px 20px; 
             text-align: center; 
@@ -139,7 +139,7 @@ $email_content = "
             background: #f8f9fa; 
             border-radius: 10px; 
             padding: 20px; 
-            border-left: 5px solid #EF233C;
+            border-left: 5px solid #3B82F6;
             transition: all 0.3s ease;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
@@ -149,7 +149,7 @@ $email_content = "
         }
         .label { 
             font-weight: 700; 
-            color: #EF233C; 
+            color: #3B82F6; 
             display: block;
             margin-bottom: 8px;
             font-size: 14px;
@@ -182,7 +182,7 @@ $email_content = "
             margin: 5px 0; 
         }
         .footer a {
-            color: #EF233C;
+            color: #3B82F6;
             text-decoration: none;
             font-weight: 600;
         }
@@ -328,7 +328,7 @@ if ($mail_sent) {
                 box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             }
             .header { 
-                background: linear-gradient(135deg, #28a745 0%, #20c997 100%); 
+                background: linear-gradient(135deg, #3B82F6 0%, #20c997 100%); 
                 color: white; 
                 padding: 40px 20px; 
                 text-align: center; 
@@ -376,7 +376,7 @@ if ($mail_sent) {
             }
             .formation-highlight {
                 background: linear-gradient(135deg, #e8f5e8 0%, #d4edda 100%);
-                border: 2px solid #28a745;
+                border: 2px solid #3B82F6;
                 border-radius: 12px;
                 padding: 25px;
                 margin: 25px 0;
@@ -398,10 +398,10 @@ if ($mail_sent) {
                 border-radius: 10px;
                 padding: 25px;
                 margin: 25px 0;
-                border-left: 5px solid #28a745;
+                border-left: 5px solid #3B82F6;
             }
             .info-box h4 {
-                color: #28a745;
+                color: #3B82F6;
                 margin: 0 0 15px 0;
                 font-size: 18px;
             }
@@ -466,7 +466,7 @@ if ($mail_sent) {
                 color: #6c757d;
             }
             .signature strong {
-                color: #EF233C;
+                color: #3B82F6;
                 font-size: 18px;
             }
             @media (max-width: 600px) {
@@ -537,7 +537,7 @@ if ($mail_sent) {
                     <p><strong>Email :</strong> lafraouzimouhssine@gmail.com</p>
                 </div>
                 
-                <p style='font-size: 16px; color: #28a745; font-weight: 600; text-align: center; margin: 30px 0;'>
+                <p style='font-size: 16px; color: #3B82F6; font-weight: 600; text-align: center; margin: 30px 0;'>
                     Merci pour votre confiance et à bientôt ! 🚀
                 </p>
                 

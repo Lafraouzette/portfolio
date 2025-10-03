@@ -960,10 +960,11 @@ a:focus {
     font-weight: 500;
     border: 2px solid #e9ecef;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     position: relative;
     overflow: hidden;
+    transform: translateY(0) scale(1);
 }
 
 .tech-badge-filter::before {
@@ -1020,6 +1021,15 @@ a:focus {
     font-weight: 600;
     transition: all 0.3s ease;
     cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.8);
+}
+
+.clear-tech-filters.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
 }
 
 .clear-tech-filters:hover {
@@ -1027,6 +1037,10 @@ a:focus {
     color: #ffffff;
     transform: translateY(-2px);
     box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+.clear-tech-filters.visible:hover {
+    transform: translateY(-2px) scale(1);
 }
 
 .clear-tech-filters i {

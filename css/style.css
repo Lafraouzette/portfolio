@@ -24,7 +24,7 @@ a {
 a:hover,
 a:active,
 a:focus {
-    color: #EF233C;
+    color: #3B82F6;
     outline: none;
     text-decoration: none;
 }
@@ -44,20 +44,20 @@ a:focus {
     font-weight: 600;
     letter-spacing: 1px;
     color: #ffffff;
-    background: #EF233C;
+    background: #3B82F6;
     border: 2px solid transparent;
     border-radius: 0;
-    box-shadow: inset 0 0 0 50px #EF233C;
+    box-shadow: inset 0 0 0 50px #3B82F6;
     transition: ease-out 0.3s;
     -webkit-transition: ease-out 0.3s;
     -moz-transition: ease-out 0.3s;
 }
 
 .btn:hover {
-    color: #EF233C;
+    color: #3B82F6;
     background: transparent;
-    box-shadow: inset 0 0 0 0 #EF233C;
-    border-color: #EF233C;
+    box-shadow: inset 0 0 0 0 #3B82F6;
+    border-color: #3B82F6;
 }
 
 #loader {
@@ -91,7 +91,7 @@ a:focus {
     width: 45px;
     height: 45px;
     border: 5px solid #dddddd;
-    border-top: 5px solid #EF233C;
+    border-top: 5px solid #3B82F6;
     border-radius: 50%;
     -webkit-animation: spin 2s linear infinite;
     animation: spin 2s linear infinite;
@@ -188,7 +188,7 @@ a:focus {
     }
     
     .navbar.nav-sticky .navbar-brand {
-        color: #EF233C;
+        color: #3B82F6;
     }
 
     .navbar-light .navbar-nav .nav-link,
@@ -211,7 +211,7 @@ a:focus {
     
     .navbar-light.nav-sticky .navbar-nav .nav-link:hover,
     .navbar-light.nav-sticky .navbar-nav .nav-link.active {
-        color: #EF233C;
+        color: #3B82F6;
     }
 }
 
@@ -222,7 +222,7 @@ a:focus {
     }
     
     .navbar .navbar-brand {
-        color: #EF233C;
+        color: #3B82F6;
     }
     
     .navbar .navbar-nav {
@@ -248,7 +248,7 @@ a:focus {
     margin-bottom: 45px;
     padding: 120px 0 0 0;
     overflow: hidden;
-    background: linear-gradient(rgba(239, 35, 60, .95), rgba(239, 35, 60, .95)), url(../img/hero-bg.jpg);
+    background: linear-gradient(rgba(59, 130, 246, .95), rgba(59, 130, 246, .95)), url(../img/hero-bg.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -314,7 +314,7 @@ a:focus {
 
 .hero .hero-btn .btn {
     margin-top: 35px;
-    color: #EF233C;
+    color: #3B82F6;
     background: #ffffff;
     box-shadow: inset 0 0 0 50px #ffffff;
 }
@@ -439,7 +439,7 @@ a:focus {
     top: 11px;
     right: 0;
     left: -30px;
-    background: #EF233C;
+    background: #3B82F6;
     z-index: -1;
 }
 
@@ -450,7 +450,7 @@ a:focus {
     height: 3px;
     top: 11px;
     left: 3px;
-    background: #EF233C;
+    background: #3B82F6;
     z-index: 1;
 }
 
@@ -532,7 +532,7 @@ a:focus {
 
 .about .progress .progress-bar {
     width: 0px;
-    background: #EF233C;
+    background: #3B82F6;
     border-radius: 10px;
     transition: 2s;
 }
@@ -565,7 +565,7 @@ a:focus {
     content: '';
     position: absolute;
     width: 2px;
-    background: #EF233C;
+    background: #3B82F6;
     top: 0;
     bottom: 0;
     left: 50%;
@@ -629,7 +629,7 @@ a:focus {
     top: 44px;
     font-size: 16px;
     font-weight: 600;
-    color: #EF233C;
+    color: #3B82F6;
     text-transform: uppercase;
     letter-spacing: 1px;
     z-index: 1;
@@ -828,7 +828,7 @@ a:focus {
 .service .service-icon i {
     position: relative;
     font-size: 60px;
-    color: #EF233C;
+    color: #3B82F6;
     transition: .3s;
 }
 
@@ -897,10 +897,10 @@ a:focus {
     font-size: 14px;
     font-weight: 600;
     color: #ffffff;
-    background: #EF233C;
+    background: #3B82F6;
     border: 2px solid transparent;
     border-radius: 0;
-    box-shadow: inset 0 0 0 50px #EF233C;
+    box-shadow: inset 0 0 0 50px #3B82F6;
     transition: ease-out 0.3s;
     -webkit-transition: ease-out 0.3s;
     -moz-transition: ease-out 0.3s;
@@ -908,10 +908,10 @@ a:focus {
 
 .portfolio #portfolio-filter li:hover,
 .portfolio #portfolio-filter li.filter-active {
-    color: #EF233C;
+    color: #3B82F6;
     background: transparent;
-    box-shadow: inset 0 0 0 0 #EF233C;
-    border-color: #EF233C;
+    box-shadow: inset 0 0 0 0 #3B82F6;
+    border-color: #3B82F6;
 }
 
 /* Technology Filter Badges Section */
@@ -921,7 +921,7 @@ a:focus {
     background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
     border-radius: 15px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-    border: 1px solid rgba(239, 35, 60, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.1);
 }
 
 .tech-filter-section h5 {
@@ -937,7 +937,7 @@ a:focus {
 
 .tech-filter-section h5 i {
     margin-right: 10px;
-    color: #EF233C;
+    color: #3B82F6;
     font-size: 20px;
 }
 
@@ -973,7 +973,7 @@ a:focus {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(239, 35, 60, 0.1), transparent);
+    background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
     transition: left 0.5s;
 }
 
@@ -982,18 +982,18 @@ a:focus {
 }
 
 .tech-badge-filter:hover {
-    background: linear-gradient(135deg, #EF233C 0%, #d63031 100%);
+    background: linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%);
     color: #ffffff;
-    border-color: #EF233C;
+    border-color: #3B82F6;
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(239, 35, 60, 0.3);
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
 }
 
 .tech-badge-filter.active {
-    background: linear-gradient(135deg, #EF233C 0%, #d63031 100%);
+    background: linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%);
     color: #ffffff;
-    border-color: #EF233C;
-    box-shadow: 0 4px 15px rgba(239, 35, 60, 0.3);
+    border-color: #3B82F6;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
     transform: translateY(-1px);
 }
 
@@ -1013,7 +1013,7 @@ a:focus {
     margin: 0 auto;
     background: transparent;
     border: 2px solid #EF233C;
-    color: #EF233C;
+    color: #3B82F6;
     padding: 8px 20px;
     border-radius: 25px;
     font-size: 14px;
@@ -1023,10 +1023,10 @@ a:focus {
 }
 
 .clear-tech-filters:hover {
-    background: #EF233C;
+    background: #3B82F6;
     color: #ffffff;
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(239, 35, 60, 0.3);
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
 }
 
 .clear-tech-filters i {
@@ -1054,11 +1054,11 @@ a:focus {
 .formation-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-    border-color: #EF233C;
+    border-color: #3B82F6;
 }
 
 .formation-card.featured {
-    border-color: #EF233C;
+    border-color: #3B82F6;
     transform: scale(1.05);
 }
 
@@ -1069,7 +1069,7 @@ a:focus {
 .formation-header {
     position: relative;
     padding: 30px 30px 20px 30px;
-    background: linear-gradient(135deg, #EF233C 0%, #d63031 100%);
+    background: linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%);
     color: #ffffff;
     text-align: center;
 }
@@ -1097,7 +1097,7 @@ a:focus {
     top: 20px;
     right: 20px;
     background: rgba(255, 255, 255, 0.9);
-    color: #EF233C;
+    color: #3B82F6;
     padding: 5px 12px;
     border-radius: 15px;
     font-size: 12px;
@@ -1141,7 +1141,7 @@ a:focus {
 .detail-item i {
     width: 20px;
     margin-right: 10px;
-    color: #EF233C;
+    color: #3B82F6;
     text-align: center;
 }
 
@@ -1157,7 +1157,7 @@ a:focus {
 .price {
     font-size: 28px;
     font-weight: 700;
-    color: #EF233C;
+    color: #3B82F6;
     display: block;
 }
 
@@ -1170,7 +1170,7 @@ a:focus {
 
 .formation-btn {
     width: 100%;
-    background: linear-gradient(135deg, #EF233C 0%, #d63031 100%);
+    background: linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%);
     border: none;
     color: #ffffff;
     padding: 12px 25px;
@@ -1178,13 +1178,13 @@ a:focus {
     font-size: 16px;
     font-weight: 600;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(239, 35, 60, 0.3);
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
 }
 
 .formation-btn:hover {
-    background: linear-gradient(135deg, #d63031 0%, #c0392b 100%);
+    background: linear-gradient(135deg, #60A5FA 0%, #93C5FD 100%);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(239, 35, 60, 0.4);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
     color: #ffffff;
 }
 
@@ -1196,7 +1196,7 @@ a:focus {
 }
 
 .modal-header {
-    background: linear-gradient(135deg, #EF233C 0%, #d63031 100%);
+    background: linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%);
     color: #ffffff;
     border-radius: 20px 20px 0 0;
     border: none;
@@ -1238,7 +1238,7 @@ a:focus {
 }
 
 .formation-info h6 {
-    color: #EF233C;
+    color: #3B82F6;
     font-size: 18px;
     font-weight: 600;
     margin-bottom: 5px;
@@ -1264,7 +1264,7 @@ a:focus {
 }
 
 .formation-form .form-control:focus {
-    border-color: #EF233C;
+    border-color: #3B82F6;
     box-shadow: 0 0 0 0.2rem rgba(239, 35, 60, 0.25);
 }
 
@@ -1284,11 +1284,11 @@ a:focus {
 
 .form-check-input:checked {
     background-color: #EF233C;
-    border-color: #EF233C;
+    border-color: #3B82F6;
 }
 
 .terms-link {
-    color: #EF233C;
+    color: #3B82F6;
     text-decoration: none;
 }
 
@@ -1320,14 +1320,14 @@ a:focus {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, #EF233C 0%, #d63031 100%);
+    background: linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%);
     border: none;
 }
 
 .btn-primary:hover {
-    background: linear-gradient(135deg, #d63031 0%, #c0392b 100%);
+    background: linear-gradient(135deg, #60A5FA 0%, #93C5FD 100%);
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(239, 35, 60, 0.3);
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
 }
 
 /* Success Modal */
@@ -1425,14 +1425,14 @@ a:focus {
 /* Tech Badge Styles */
 .tech-badge {
     display: inline-block;
-    background: linear-gradient(135deg, #EF233C 0%, #d63031 100%);
+    background: linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%);
     color: #ffffff;
     padding: 4px 12px;
     border-radius: 15px;
     font-size: 12px;
     font-weight: 600;
     margin: 2px 4px;
-    box-shadow: 0 2px 8px rgba(239, 35, 60, 0.3);
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
@@ -1455,7 +1455,7 @@ a:focus {
 
 .tech-badge:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(239, 35, 60, 0.4);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
 }
 
 .tech-badge i {
@@ -1467,8 +1467,8 @@ a:focus {
 .active-filters {
     margin: 15px 0;
     padding: 10px 0;
-    border-top: 1px solid rgba(239, 35, 60, 0.1);
-    border-bottom: 1px solid rgba(239, 35, 60, 0.1);
+    border-top: 1px solid rgba(59, 130, 246, 0.1);
+    border-bottom: 1px solid rgba(59, 130, 246, 0.1);
 }
 
 .active-filters h5 {
@@ -1482,13 +1482,13 @@ a:focus {
 
 .active-filters h5 i {
     margin-right: 8px;
-    color: #EF233C;
+    color: #3B82F6;
 }
 
 .clear-filters {
     background: transparent;
     border: 1px solid #EF233C;
-    color: #EF233C;
+    color: #3B82F6;
     padding: 4px 12px;
     border-radius: 15px;
     font-size: 12px;
@@ -1498,7 +1498,7 @@ a:focus {
 }
 
 .clear-filters:hover {
-    background: #EF233C;
+    background: #3B82F6;
     color: #ffffff;
     transform: translateY(-1px);
 }
@@ -1647,7 +1647,7 @@ a:focus {
 }
 
 .flip-card-back {
-    background: linear-gradient(135deg, #EF233C 0%, #d63031 100%);
+    background: linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%);
     color: white;
     transform: rotateY(180deg);
     display: flex;
@@ -1800,7 +1800,7 @@ a:focus {
 .stage-meta i, .project-meta i {
     margin-right: 8px;
     width: 15px;
-    color: #EF233C;
+    color: #3B82F6;
 }
 
 .project-meta {
@@ -1856,7 +1856,7 @@ a:focus {
     width: 100%;
     margin: 45px 0;
     padding: 90px 0;
-    background: #EF233C;
+    background: #3B82F6;
 }
 
 .banner .container {
@@ -1893,7 +1893,7 @@ a:focus {
 
 .banner .banner-text .btn {
     margin-top: 15px;
-    color: #EF233C;
+    color: #3B82F6;
     background: #ffffff;
     box-shadow: inset 0 0 0 50px #ffffff;
 }
@@ -1947,7 +1947,7 @@ a:focus {
 }
 
 .price .price-item.featured-item .price-header {
-    color: #EF233C;
+    color: #3B82F6;
 }
 
 .price .price-title h2 {
@@ -1977,7 +1977,7 @@ a:focus {
 }
 
 .price .price-item.featured-item h2 {
-    color: #EF233C;
+    color: #3B82F6;
 }
 
 .price .price-body {
@@ -2013,15 +2013,15 @@ a:focus {
 
 .price .price-item.featured-item .price-action .btn {
     color: #ffffff;
-    background: #EF233C;
-    box-shadow: inset 0 0 0 50px #EF233C;
+    background: #3B82F6;
+    box-shadow: inset 0 0 0 50px #3B82F6;
 }
 
 .price .price-item.featured-item .price-action .btn:hover {
-    color: #EF233C;
+    color: #3B82F6;
     background: transparent;
-    box-shadow: inset 0 0 0 0 #EF233C;
-    border-color: #EF233C;
+    box-shadow: inset 0 0 0 0 #3B82F6;
+    border-color: #3B82F6;
 }
 
 
@@ -2064,7 +2064,7 @@ a:focus {
 }
 
 .team .team-text h2 {
-    color: #EF233C;
+    color: #3B82F6;
     font-size: 18px;
     font-weight: 600;
     margin-bottom: 5px;
@@ -2153,7 +2153,7 @@ a:focus {
     position: relative;
     margin: 45px 0;
     padding: 90px 0;
-    background: #EF233C;
+    background: #3B82F6;
 }
 
 .testimonial .container {
@@ -2205,7 +2205,7 @@ a:focus {
 }
 
 .testimonial .testimonial-text h3 {
-    color: #EF233C;
+    color: #3B82F6;
     font-size: 18px;
     font-weight: 600;
     margin-bottom: 10px;
@@ -2243,7 +2243,7 @@ a:focus {
     position: relative;
     width: 100%;
     margin: 45px 0;
-    background: #EF233C;
+    background: #3B82F6;
 }
 
 .contact .container-fluid {
@@ -2254,7 +2254,7 @@ a:focus {
 .contact .contact-form {
     position: relative;
     padding: 90px 0 90px 45px;
-    background: #EF233C;
+    background: #3B82F6;
 }
 
 .contact .contact-form input {
@@ -2288,7 +2288,7 @@ a:focus {
 
 .contact .contact-form .btn {
     margin-top: 35px;
-    color: #EF233C;
+    color: #3B82F6;
     background: #ffffff;
     box-shadow: inset 0 0 0 50px #ffffff;
 }
@@ -2402,7 +2402,7 @@ a:focus {
 .footer {
     position: relative;
     margin-top: 45px;
-    background: #EF233C;
+    background: #3B82F6;
 }
 
 .footer .container-fluid {

@@ -54,19 +54,19 @@
     /* ── Service Sections ── */
     .svc-section { padding: 40px 0; }
     .svc-icon-col { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 14px; }
-    .svc-icon-wrap { width: 80px; height: 80px; border-radius: 20px; background: linear-gradient(135deg,#3B82F6,#60A5FA); display: inline-flex; align-items: center; justify-content: center; }
+    .svc-icon-wrap { width: 80px; height: 80px; border-radius: 20px; background: linear-gradient(135deg,#7B2FBE,#1F51FF); display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 0 20px rgba(123,47,190,0.5); }
     .svc-icon-wrap i { font-size: 2rem; color: #fff; }
     .svc-body { padding-left: 30px; }
     .svc-header { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 12px; }
-    .svc-header h3 { font-size: 1.4rem; font-weight: 700; color: #111; margin: 0; }
-    .svc-tag { background: #dbeafe; color: #3B82F6; font-size: 12px; font-weight: 600; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.5px; }
-    .svc-desc { color: #555; line-height: 1.75; font-size: 15px; margin-bottom: 18px; }
+    .svc-header h3 { font-size: 1.4rem; font-weight: 700; color: #ffffff; margin: 0; }
+    .svc-tag { background: rgba(123,47,190,0.2); color: #00D2FF; font-size: 12px; font-weight: 600; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.5px; border: 1px solid #7B2FBE; }
+    .svc-desc { color: #B0B0CC; line-height: 1.75; font-size: 15px; margin-bottom: 18px; }
     .svc-features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 30px; margin-bottom: 24px; }
-    .svc-feat { font-size: 14px; font-weight: 500; color: #333; }
-    .svc-feat i { color: #3B82F6; margin-right: 8px; font-size: 13px; }
-    .svc-cta { display: inline-flex; align-items: center; gap: 8px; background: #3B82F6; color: #fff; font-size: 14px; font-weight: 600; padding: 11px 26px; border-radius: 0; text-decoration: none; white-space: nowrap; transition: transform 0.25s, box-shadow 0.25s; }
-    .svc-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(59,130,246,0.3); color: #fff; text-decoration: none; }
-    .svc-divider { border: none; border-top: 1px solid #e9ecef; margin: 0; }
+    .svc-feat { font-size: 14px; font-weight: 500; color: #B0B0CC; }
+    .svc-feat i { color: #00D2FF; margin-right: 8px; font-size: 13px; }
+    .svc-cta { display: inline-flex; align-items: center; gap: 8px; background: #7B2FBE; color: #fff; font-size: 14px; font-weight: 600; padding: 11px 26px; border-radius: 0; text-decoration: none; white-space: nowrap; transition: transform 0.25s, box-shadow 0.25s; box-shadow: 0 0 12px rgba(123,47,190,0.4); }
+    .svc-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(123,47,190,0.5); color: #fff; text-decoration: none; }
+    .svc-divider { border: none; border-top: 1px solid #2a2a42; margin: 0; }
     @media (max-width: 767px) { .svc-body { padding-left: 0; margin-top: 10px; } .svc-features-grid { grid-template-columns: 1fr; } }
 
     .member-img {
@@ -113,7 +113,7 @@
     <!-- Nav Bar Start -->
     <div class="navbar navbar-expand-lg bg-light navbar-light">
         <div class="container-fluid">
-            <a href="index.html" class="navbar-brand"><i class="fas fa-keyboard" style="font-size:0.6em; vertical-align:middle; margin-right:6px;"></i></a>
+            <a href="index.html" class="navbar-brand"><img src="img/logo.png" alt="Logo" style="height:36px; vertical-align:middle;"></a>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -139,15 +139,20 @@
         <canvas id="space-canvas"></canvas>
         <div class="container-fluid">
             <div class="row align-items-center">
-                <div class="hero-content">
-                    <div class="hero-text">
-                        <p>I'm</p>
-                        <h1>LAFRAOUZI Mouhssine</h1>
-                        <h2></h2>
-                        <div class="typed-text">DevOps Engineer, AI Integration Engineer, Cloud Architect, Full-Stack Developer</div>
+                <div class="hero-content" style="display:flex; flex-direction:row; align-items:center; justify-content:space-between; width:100%; gap:40px;">
+                    <div>
+                        <div class="hero-text">
+                            <p>I'm</p>
+                            <h1>LAFRAOUZI Mouhssine</h1>
+                            <h2></h2>
+                            <div class="typed-text">DevOps Engineer, AI Integration Engineer, Cloud Architect, Full-Stack Developer</div>
+                        </div>
+                        <div class="hero-btn">
+                            <a class="btn" href="mailto:lafraouzimouhssine@gmail.com">Contact Me</a>
+                        </div>
                     </div>
-                    <div class="hero-btn">
-                        <a class="btn" href="mailto:lafraouzimouhssine@gmail.com">Contact Me</a>
+                    <div style="flex-shrink:0;">
+                        <img src="img/logo.png" alt="Logo" style="width:280px; max-width:35vw; opacity:0.92;">
                     </div>
                 </div>
 
@@ -243,7 +248,7 @@
                         <h4>Réseaux et Systèmes Informatiques — FST Settat | Maroc</h4>
                         <p>Formation avancée en développement logiciel, sécurité des réseaux & systèmes, DevOps et intégration cloud.</p>
                         <a href="files/MST-RSI.pdf" class="btn"
-                            style="background-color: #3B82F6; color: white; border: none;" download>Détails du programme
+                            style="background-color: #7B2FBE; color: white; border: none;" download>Détails du programme
                             <i class="fas fa-download"></i></a>
                     </div>
                 </div>
@@ -255,7 +260,7 @@
                         <h4>Informatique — FST Beni Mellal | Maroc</h4>
                         <p>Formation solide en informatique couvrant le développement logiciel, les bases de données et les réseaux informatiques.</p>
                         <a href="files/lst_info.pdf" class="btn"
-                            style="background-color: #3B82F6; color: white; border: none;" download>Détails du programme
+                            style="background-color: #7B2FBE; color: white; border: none;" download>Détails du programme
                             <i class="fas fa-download"></i></a>
                     </div>
                 </div>
@@ -274,11 +279,11 @@
     <!-- Job Experience End -->
 
     <!-- Skills Start -->
-    <div class="skills-section wow fadeInUp" data-wow-delay="0.1s" id="skills" style="padding: 80px 0; background: #f8faff;">
+    <div class="skills-section wow fadeInUp" data-wow-delay="0.1s" id="skills" style="padding: 80px 0; background: #0e0e18;">
         <div class="container">
             <div class="section-header text-center" style="margin-bottom: 50px;">
-                <p class="text-uppercase" style="color:#3B82F6; font-weight:700; letter-spacing:2px; font-size:13px;">Mes compétences</p>
-                <h2 style="font-weight:700; color:#111; font-size:2rem;">My Skills</h2>
+                <p class="text-uppercase" style="color:#00D2FF; font-weight:700; letter-spacing:2px; font-size:13px;">Mes compétences</p>
+                <h2 style="font-weight:700; color:#ffffff; font-size:2rem; text-shadow:0 0 30px rgba(123,47,190,0.5);">My Skills</h2>
             </div>
             <style>
                 .skill-group { margin-bottom: 36px; }
@@ -604,11 +609,11 @@
 
 
     <!-- Services Start -->
-    <div class="service" id="services" style="padding: 80px 0 60px;">
+    <div class="service" id="services" style="padding: 80px 0 60px; background:#0a0a0f;">
         <div class="container">
             <div class="section-header text-center wow zoomIn" data-wow-delay="0.1s" style="margin-bottom: 60px;">
-                <p class="text-uppercase" style="color:#3B82F6; font-weight:700; letter-spacing:2px; font-size:13px;">Ce que je propose</p>
-                <h2 style="font-weight:700; color:#111; font-size:2rem;">Solutions & expertises à votre service</h2>
+                <p class="text-uppercase" style="color:#00D2FF; font-weight:700; letter-spacing:2px; font-size:13px;">Ce que je propose</p>
+                <h2 style="font-weight:700; color:#ffffff; font-size:2rem; text-shadow:0 0 30px rgba(123,47,190,0.5);">Solutions & expertises à votre service</h2>
             </div>
 
             <!-- Service 1 — Software Solutions -->
@@ -641,17 +646,17 @@
             <!-- Service 2 — Network Architecture -->
             <div class="svc-section row align-items-start wow fadeInUp" data-wow-delay="0.2s">
                 <div class="col-lg-2 col-md-3 col-sm-12 svc-icon-col">
-                    <div class="svc-icon-wrap" style="background: linear-gradient(135deg,#0ea5e9,#38bdf8);">
+                    <div class="svc-icon-wrap" style="background: linear-gradient(135deg,#1F51FF,#00D2FF);">
                         <i class="fas fa-network-wired"></i>
                     </div>
-                    <a href="mailto:lafraouzimouhssine@gmail.com?subject=Devis Architecture Réseau" class="svc-cta mt-3" style="background:#0ea5e9;">
+                    <a href="mailto:lafraouzimouhssine@gmail.com?subject=Devis Architecture Réseau" class="svc-cta mt-3" style="background:#1F51FF;">
                         Demander un devis
                     </a>
                 </div>
                 <div class="col-lg-10 col-md-9 col-sm-12 svc-body">
                     <div class="svc-header">
                         <h3>Architecture réseau</h3>
-                        <span class="svc-tag" style="background:#e0f2fe; color:#0ea5e9;">LAN · WAN · Sécurité</span>
+                        <span class="svc-tag" style="background:rgba(31,81,255,0.2); color:#00D2FF; border:1px solid #1F51FF;">LAN · WAN · Sécurité</span>
                     </div>
                     <p class="svc-desc">Je conçois et déploie des infrastructures réseau fiables et sécurisées, adaptées aux environnements professionnels, tout en assurant la connectivité et la protection de vos données.</p>
                     <div class="svc-features-grid">
@@ -668,17 +673,17 @@
             <!-- Service 3 — Training & Mentoring -->
             <div class="svc-section row align-items-start wow fadeInUp" data-wow-delay="0.3s">
                 <div class="col-lg-2 col-md-3 col-sm-12 svc-icon-col">
-                    <div class="svc-icon-wrap" style="background: linear-gradient(135deg,#8b5cf6,#a78bfa);">
+                    <div class="svc-icon-wrap" style="background: linear-gradient(135deg,#6A0DAD,#9D4EDD);">
                         <i class="fas fa-graduation-cap"></i>
                     </div>
-                    <a href="mailto:lafraouzimouhssine@gmail.com?subject=Devis Formation & Mentoring" class="svc-cta mt-3" style="background:#8b5cf6;">
+                    <a href="mailto:lafraouzimouhssine@gmail.com?subject=Devis Formation & Mentoring" class="svc-cta mt-3" style="background:#6A0DAD;">
                         Demander un devis
                     </a>
                 </div>
                 <div class="col-lg-10 col-md-9 col-sm-12 svc-body">
                     <div class="svc-header">
                         <h3>Formation & Mentoring</h3>
-                        <span class="svc-tag" style="background:#ede9fe; color:#8b5cf6;">Dev · DevOps · Accompagnement</span>
+                        <span class="svc-tag" style="background:rgba(106,13,173,0.2); color:#9D4EDD; border:1px solid #6A0DAD;">Dev · DevOps · Accompagnement</span>
                     </div>
                     <p class="svc-desc">Formations personnalisées en développement web et DevOps. De l'initiation aux technologies avancées, je vous accompagne à votre rythme avec des projets concrets et un suivi individualisé.</p>
                     <div class="svc-features-grid">
@@ -695,17 +700,17 @@
             <!-- Service 4 — AI & LLM -->
             <div class="svc-section row align-items-start wow fadeInUp" data-wow-delay="0.4s">
                 <div class="col-lg-2 col-md-3 col-sm-12 svc-icon-col">
-                    <div class="svc-icon-wrap" style="background: linear-gradient(135deg,#f59e0b,#fbbf24);">
+                    <div class="svc-icon-wrap" style="background: linear-gradient(135deg,#00D2FF,#1F51FF);">
                         <i class="fas fa-brain"></i>
                     </div>
-                    <a href="mailto:lafraouzimouhssine@gmail.com?subject=Devis AI & LLM Integration" class="svc-cta mt-3" style="background:#f59e0b;">
+                    <a href="mailto:lafraouzimouhssine@gmail.com?subject=Devis AI & LLM Integration" class="svc-cta mt-3" style="background:#00D2FF; color:#0a0a0f;">
                         Demander un devis
                     </a>
                 </div>
                 <div class="col-lg-10 col-md-9 col-sm-12 svc-body">
                     <div class="svc-header">
                         <h3>Intelligence Artificielle & LLM</h3>
-                        <span class="svc-tag" style="background:#fef3c7; color:#d97706;">IA · LLM · Automatisation</span>
+                        <span class="svc-tag" style="background:rgba(0,210,255,0.15); color:#00D2FF; border:1px solid #00D2FF;">IA · LLM · Automatisation</span>
                     </div>
                     <p class="svc-desc">J'intègre des modèles de langage (LLM) et des solutions d'IA dans vos applications existantes ou nouveaux projets. Chatbots intelligents, analyse de données, génération de contenu, automatisation de workflows — je transforme vos besoins métier en fonctionnalités IA concrètes et exploitables.</p>
                     <div class="svc-features-grid">
@@ -893,7 +898,7 @@
                     opacity: 0.08 + Math.random() * 0.18,
                     pulse: Math.random() * Math.PI * 2,
                     pulseSpeed: 0.006 + Math.random() * 0.014,
-                    hue: Math.random() > 0.6 ? '59,130,246' : '100,149,237'
+                    hue: Math.random() > 0.6 ? '123,47,190' : '0,210,255'
                 };
             }
 
@@ -964,7 +969,7 @@
                     opacity: randomBetween(0.3, 0.9),
                     pulseSpeed: randomBetween(0.005, 0.02),
                     pulseOffset: Math.random() * Math.PI * 2,
-                    color: Math.random() > 0.7 ? '#93c5fd' : '#ffffff'
+                    color: Math.random() > 0.6 ? '#00D2FF' : '#9D4EDD'
                 };
             }
 

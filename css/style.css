@@ -269,18 +269,11 @@ a:focus {
     margin-bottom: 45px;
     padding: 120px 0 0 0;
     overflow: hidden;
-    background: linear-gradient(135deg, rgba(6,6,12,.98) 0%, rgba(26,10,50,.96) 60%, rgba(0,20,60,.95) 100%);
+    background: var(--bg-primary);
 }
 
 .hero::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background:
-        radial-gradient(ellipse at 20% 50%, rgba(106,13,173,.25) 0%, transparent 60%),
-        radial-gradient(ellipse at 80% 20%, rgba(0,210,255,.12) 0%, transparent 50%);
-    pointer-events: none;
-    z-index: 0;
+    content: none;
 }
 
 .hero .container-fluid {
@@ -456,6 +449,18 @@ a:focus {
     position: relative;
     width: 100%;
     margin: -45px 0 45px 0;
+    background: linear-gradient(135deg, rgba(6,6,12,.98) 0%, rgba(26,10,50,.96) 60%, rgba(0,20,60,.95) 100%);
+}
+
+.about::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background:
+        radial-gradient(ellipse at 20% 50%, rgba(106,13,173,.25) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(0,210,255,.12) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
 }
 
 .about .col-lg-6 {

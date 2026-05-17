@@ -267,6 +267,122 @@
             color: #6c757d;
             margin-bottom: 1.5rem;
         }
+
+        /* ── Service Sections ── */
+        .svc-section {
+            padding: 40px 0;
+        }
+
+        .svc-icon-col {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .svc-icon-wrap {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #3B82F6, #60A5FA);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .svc-icon-wrap i {
+            font-size: 2rem;
+            color: #fff;
+        }
+
+        .svc-body {
+            padding-left: 30px;
+        }
+
+        .svc-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-bottom: 12px;
+        }
+
+        .svc-header h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #111;
+            margin: 0;
+        }
+
+        .svc-tag {
+            background: #dbeafe;
+            color: #3B82F6;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .svc-desc {
+            color: #555;
+            line-height: 1.75;
+            font-size: 15px;
+            margin-bottom: 18px;
+        }
+
+        .svc-features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px 30px;
+            margin-bottom: 24px;
+        }
+
+        .svc-feat {
+            font-size: 14px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .svc-feat i {
+            color: #3B82F6;
+            margin-right: 8px;
+            font-size: 13px;
+        }
+
+        .svc-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #3B82F6;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 11px 26px;
+            border-radius: 0;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+
+        .svc-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(59,130,246,0.3);
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .svc-divider {
+            border: none;
+            border-top: 1px solid #e9ecef;
+            margin: 0;
+        }
+
+        @media (max-width: 767px) {
+            .svc-body { padding-left: 0; margin-top: 10px; }
+            .svc-features-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 
@@ -314,219 +430,124 @@
     <!-- Services Start -->
     <div class="service" id="services" style="padding-top: 80px;">
         <div class="container">
-            <div class="section-header text-center wow zoomIn" data-wow-delay="0.1s">
-                <p class="text-uppercase text-primary fw-bold small mb-2">What I offer</p>
-                <h2 class="fw-bold mb-5">Software solutions & network infrastructure</h2>
+            <div class="section-header text-center wow zoomIn" data-wow-delay="0.1s" style="margin-bottom: 60px;">
+                <p class="text-uppercase" style="color:#3B82F6; font-weight:700; letter-spacing:2px; font-size:13px;">Ce que je propose</p>
+                <h2 style="font-weight:700; color:#111; font-size:2rem;">Solutions & expertises à votre service</h2>
             </div>
-            <div class="row g-4">
-                <!-- Bloc Logiciel -->
-                <div class="col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="service-card text-left">
-                        <div class="service-icon">
-                            <i class="fas fa-laptop-code"></i>
-                        </div>
-                        <h4 class="service-title">
-                            Software Solutions
-                        </h4>
-                        <p class="service-description">
-                            I design and develop high-performance software solutions, from architecture to production
-                            deployment. Each project is designed to provide a smooth, intuitive experience tailored to your business needs.
-                        </p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check-circle"></i> Custom web and mobile applications</li>
-                            <li><i class="fas fa-check-circle"></i> Modern and responsive interfaces (UX/UI)</li>
-                            <li><i class="fas fa-check-circle"></i> Secure and scalable back-end</li>
-                            <li><i class="fas fa-check-circle"></i> Cloud integration and deployment (CI/CD)</li>
-                        </ul>
-                        <a href="#" class="service-btn" data-service="Software Solutions" data-toggle="modal" data-target="#serviceModal">
-                            <i class="fas fa-arrow-right"></i>Request a quote
-                        </a>
-                    </div>
-                </div>
 
-                <!-- Bloc Réseau -->
-                <div class="col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="0.4s">
-                    <div class="service-card text-left">
-                        <div class="service-icon">
-                            <i class="fas fa-network-wired"></i>
-                        </div>
-                        <h4 class="service-title">
-                            Network Architecture
-                        </h4>
-                        <p class="service-description">
-                            I design and deploy reliable, secure network infrastructures adapted to professional
-                            environments, while ensuring connectivity and protection of your data.
-                        </p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check-circle"></i> Network architecture design (LAN/WAN)</li>
-                            <li><i class="fas fa-check-circle"></i> VLAN, firewalls, segmentation, routing</li>
-                            <li><i class="fas fa-check-circle"></i> Monitoring, security and high availability</li>
-                            <li><i class="fas fa-check-circle"></i> VPN setup and secure remote access</li>
-                        </ul>
-                        <a href="#" class="service-btn" data-service="Network Architecture" data-toggle="modal" data-target="#serviceModal">
-                            <i class="fas fa-arrow-right"></i>Request a quote
-                        </a>
+            <!-- Service 1 — Software Solutions -->
+            <div class="svc-section row align-items-start wow fadeInUp" data-wow-delay="0.1s">
+                <div class="col-lg-2 col-md-3 col-sm-12 svc-icon-col">
+                    <div class="svc-icon-wrap">
+                        <i class="fas fa-laptop-code"></i>
                     </div>
+                    <a href="#" class="svc-cta mt-3" data-service="Software Solutions" data-toggle="modal" data-target="#serviceModal">
+                        Demander un devis
+                    </a>
                 </div>
-
-                <!-- Service Formation -->
-                <div class="col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="0.6s">
-                    <div class="service-card text-left">
-                        <div class="service-icon">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
-                        <h4 class="service-title">
-                            Training & Mentoring
-                        </h4>
-                        <p class="service-description">
-                            Personalized training in web development and DevOps. From initiation to advanced technologies, 
-                            I accompany you in your learning journey.
-                        </p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check-circle"></i> Practical training and concrete projects</li>
-                            <li><i class="fas fa-check-circle"></i> Personalized follow-up and mentoring</li>
-                            <li><i class="fas fa-check-circle"></i> Training completion certificates</li>
-                            <li><i class="fas fa-check-circle"></i> Post-training support</li>
-                        </ul>
-                        <a href="#" class="service-btn" data-service="Training & Mentoring" data-toggle="modal" data-target="#serviceModal">
-                            <i class="fas fa-arrow-right"></i>Request a quote
-                        </a>
+                <div class="col-lg-10 col-md-9 col-sm-12 svc-body">
+                    <div class="svc-header">
+                        <h3>Développement logiciel</h3>
+                        <span class="svc-tag">Web · Mobile · Back-end</span>
+                    </div>
+                    <p class="svc-desc">Je conçois et développe des solutions logicielles sur-mesure, de l'architecture jusqu'au déploiement en production. Chaque projet est pensé pour offrir une expérience fluide, intuitive et adaptée à vos besoins métier.</p>
+                    <div class="svc-features-grid">
+                        <div class="svc-feat"><i class="fas fa-check"></i> Applications web & mobile sur-mesure</div>
+                        <div class="svc-feat"><i class="fas fa-check"></i> Interfaces modernes et responsive (UX/UI)</div>
+                        <div class="svc-feat"><i class="fas fa-check"></i> Back-end sécurisé et scalable</div>
+                        <div class="svc-feat"><i class="fas fa-check"></i> Intégration cloud et déploiement CI/CD</div>
                     </div>
                 </div>
             </div>
+
+            <div class="svc-divider"></div>
+
+            <!-- Service 2 — Network Architecture -->
+            <div class="svc-section row align-items-start wow fadeInUp" data-wow-delay="0.2s">
+                <div class="col-lg-2 col-md-3 col-sm-12 svc-icon-col">
+                    <div class="svc-icon-wrap" style="background: linear-gradient(135deg,#0ea5e9,#38bdf8);">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <a href="#" class="svc-cta mt-3" style="background:#0ea5e9;" data-service="Network Architecture" data-toggle="modal" data-target="#serviceModal">
+                        Demander un devis
+                    </a>
+                </div>
+                <div class="col-lg-10 col-md-9 col-sm-12 svc-body">
+                    <div class="svc-header">
+                        <h3>Architecture réseau</h3>
+                        <span class="svc-tag" style="background:#e0f2fe; color:#0ea5e9;">LAN · WAN · Sécurité</span>
+                    </div>
+                    <p class="svc-desc">Je conçois et déploie des infrastructures réseau fiables et sécurisées, adaptées aux environnements professionnels, tout en assurant la connectivité et la protection de vos données.</p>
+                    <div class="svc-features-grid">
+                        <div class="svc-feat"><i class="fas fa-check"></i> Conception d'architecture réseau (LAN/WAN)</div>
+                        <div class="svc-feat"><i class="fas fa-check"></i> VLAN, pare-feux, segmentation, routage</div>
+                        <div class="svc-feat"><i class="fas fa-check"></i> Monitoring, sécurité et haute disponibilité</div>
+                        <div class="svc-feat"><i class="fas fa-check"></i> VPN et accès distant sécurisé</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="svc-divider"></div>
+
+            <!-- Service 3 — Training & Mentoring -->
+            <div class="svc-section row align-items-start wow fadeInUp" data-wow-delay="0.3s">
+                <div class="col-lg-2 col-md-3 col-sm-12 svc-icon-col">
+                    <div class="svc-icon-wrap" style="background: linear-gradient(135deg,#8b5cf6,#a78bfa);">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <a href="#" class="svc-cta mt-3" style="background:#8b5cf6;" data-service="Training & Mentoring" data-toggle="modal" data-target="#serviceModal">
+                        Demander un devis
+                    </a>
+                </div>
+                <div class="col-lg-10 col-md-9 col-sm-12 svc-body">
+                    <div class="svc-header">
+                        <h3>Formation & Mentoring</h3>
+                        <span class="svc-tag" style="background:#ede9fe; color:#8b5cf6;">Dev · DevOps · Accompagnement</span>
+                    </div>
+                    <p class="svc-desc">Formations personnalisées en développement web et DevOps. De l'initiation aux technologies avancées, je vous accompagne à votre rythme avec des projets concrets et un suivi individualisé.</p>
+                    <div class="svc-features-grid">
+                        <div class="svc-feat"><i class="fas fa-check"></i> Formations pratiques sur projets réels</div>
+                        <div class="svc-feat"><i class="fas fa-check"></i> Suivi personnalisé et mentoring</div>
+                        <div class="svc-feat"><i class="fas fa-check"></i> Certificats de fin de formation</div>
+                        <div class="svc-feat"><i class="fas fa-check"></i> Support post-formation inclus</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="svc-divider"></div>
+
+            <!-- Service 4 — AI & LLM Integration -->
+            <div class="svc-section row align-items-start wow fadeInUp" data-wow-delay="0.4s">
+                <div class="col-lg-2 col-md-3 col-sm-12 svc-icon-col">
+                    <div class="svc-icon-wrap" style="background: linear-gradient(135deg,#f59e0b,#fbbf24);">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <a href="#" class="svc-cta mt-3" style="background:#f59e0b;" data-service="AI & LLM Integration" data-toggle="modal" data-target="#serviceModal">
+                        Demander un devis
+                    </a>
+                </div>
+                <div class="col-lg-10 col-md-9 col-sm-12 svc-body">
+                    <div class="svc-header">
+                        <h3>Intelligence Artificielle & LLM</h3>
+                        <span class="svc-tag" style="background:#fef3c7; color:#d97706;">IA · LLM · Automatisation</span>
+                    </div>
+                    <p class="svc-desc">J'intègre des modèles de langage (LLM) et des solutions d'IA dans vos applications existantes ou nouveaux projets. Chatbots intelligents, analyse de données, génération de contenu, automatisation de workflows — je transforme vos besoins métier en fonctionnalités IA concrètes et exploitables.</p>
+                    <div class="svc-features-grid">
+                        <div class="svc-feat"><i class="fas fa-check"></i> Intégration d'API LLM (OpenAI, Claude, Mistral…)</div>
+                        <div class="svc-feat"><i class="fas fa-check"></i> Chatbots et assistants intelligents sur-mesure</div>
+                        <div class="svc-feat"><i class="fas fa-check"></i> RAG (Retrieval-Augmented Generation) sur vos données</div>
+                        <div class="svc-feat"><i class="fas fa-check"></i> Automatisation de workflows avec agents IA</div>
+                        <div class="svc-feat"><i class="fas fa-check"></i> Analyse et extraction de données non structurées</div>
+                        <div class="svc-feat"><i class="fas fa-check"></i> Fine-tuning et prompt engineering avancé</div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
     <!-- Services End -->
 
-    <!-- Formations Start -->
-    <div class="formations" id="formations">
-        <div class="container">
-            <div class="section-header text-center wow zoomIn" data-wow-delay="0.1s">
-                <p>Our Training Programs</p>
-                <h2>Develop your skills</h2>
-            </div>
-            <div class="row">
-                <!-- Formation 1 - Initiation Dev -->
-                <div class="col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="formation-card">
-                        <div class="formation-header">
-                            <div class="formation-icon">
-                                <i class="fas fa-code"></i>
-                            </div>
-                            <div class="formation-badge">Beginner</div>
-                        </div>
-                        <div class="formation-content">
-                            <h4 style="font-size: 20px; text-align: center;">Start Your Development Journey</h4>
-                            <p class="formation-description">
-                                Learn the basics of web development: <b style="color: #3B82F6;">HTML, CSS, JavaScript, PHP/Java and SQL.</b>  
-                                Perfect for starting your developer journey.
-                            </p>
-                            <div class="formation-details">
-                                <div class="detail-item">
-                                    <i class="fas fa-clock"></i>
-                                    <span>30 hours</span>
-                                </div>
-                                <div class="detail-item">
-                                    <i class="fas fa-users"></i>
-                                    <span>Max 12 people</span>
-                                </div>
-                                <div class="detail-item">
-                                    <i class="fas fa-calendar"></i>
-                                    <span>Weekend</span>
-                                </div>
-                            </div>
-                            <div class="formation-price">
-                                <span class="price">399 MAD</span>
-                                <span class="price-original">650 MAD</span>
-                            </div>
-                            <button class="btn formation-btn" data-formation="Development Initiation">
-                                Enroll now
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Formation 2 - Dev Intermédiaire -->
-                <div class="col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="formation-card featured">
-                        <div class="formation-header">
-                            <div class="formation-icon">
-                                <i class="fas fa-layer-group"></i>
-                            </div>
-                            <div class="formation-badge">Recommended</div>
-                        </div>
-                        <div class="formation-content">
-                            <h4 style="font-size: 30px; text-align: center;">Master Modern Frameworks</h4>
-                            <p class="formation-description">
-                                Develop complete applications with <b style="color: #3B82F6;">Laravel/Spring Boot and React.</b> 
-                                Master the most in-demand technologies on the market.
-                            </p>
-                            <div class="formation-details">
-                                <div class="detail-item">
-                                    <i class="fas fa-clock"></i>
-                                    <span>60 hours</span>
-                                </div>
-                                <div class="detail-item">
-                                    <i class="fas fa-users"></i>
-                                    <span>Max 10 people</span>
-                                </div>
-                                <div class="detail-item">
-                                    <i class="fas fa-calendar"></i>
-                                    <span>Evening</span>
-                                </div>
-                            </div>
-                            <div class="formation-price">
-                                <span class="price">999 MAD</span>
-                                <span class="price-original">1500 MAD</span>
-                            </div>
-                            <button class="btn formation-btn" data-formation="Intermediate Development">
-                                Enroll now
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Formation 3 - Mastering Dev -->
-                <div class="col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="formation-card">
-                        <div class="formation-header">
-                            <div class="formation-icon">
-                                <i class="fas fa-rocket"></i>
-                            </div>
-                            <div class="formation-badge">Expert</div>
-                        </div>
-                        <div class="formation-content">
-                            <h5 style="font-size: 20px; text-align: center;">Become a DevOps Architect</h5>
-                            <p class="formation-description">
-                                Become a DevOps expert: <b style="color: #3B82F6;">Docker, Kubernetes, CI/CD, monitoring, and large-scale application deployment.</b>
-                            </p>
-                            <div class="formation-details">
-                                <div class="detail-item">
-                                    <i class="fas fa-clock"></i>
-                                    <span>60 hours</span>
-                                </div>
-                                <div class="detail-item">
-                                    <i class="fas fa-users"></i>
-                                    <span>Max 8 people</span>
-                                </div>
-                                <div class="detail-item">
-                                    <i class="fas fa-calendar"></i>
-                                    <span>Weekend</span>
-                                </div>
-                            </div>
-                            <div class="formation-price">
-                                <span class="price">1500 MAD</span>
-                                <span class="price-original">2500 MAD</span>
-                            </div>
-                            <button class="btn formation-btn" data-formation="DevOps Mastery">
-                                Enroll now
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+   
     <!-- Formations End -->
 
     <!-- Footer Start -->
@@ -858,6 +879,7 @@
                                 <option value="Software Solutions">Software Solutions</option>
                                 <option value="Network Architecture">Network Architecture</option>
                                 <option value="Training & Mentoring">Training & Mentoring</option>
+                                <option value="AI & LLM Integration">AI & LLM Integration</option>
                             </select>
                         </div>
                         

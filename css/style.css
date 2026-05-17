@@ -7,6 +7,11 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
+.about, .experience, .portfolio, .footer, .section-header {
+    position: relative;
+    z-index: 1;
+}
+
 h1,
 h2, 
 h3, 
@@ -949,23 +954,40 @@ a:focus {
     margin-bottom: 20px;
 }
 
+@keyframes badge-float {
+    0%   { transform: translateY(0px) scale(1); box-shadow: 0 5px 18px rgba(0,0,0,0.18); }
+    50%  { transform: translateY(-5px) scale(1.02); box-shadow: 0 12px 28px rgba(0,0,0,0.14); }
+    100% { transform: translateY(0px) scale(1); box-shadow: 0 5px 18px rgba(0,0,0,0.18); }
+}
+
 .tech-badge-filter {
     display: inline-flex;
     align-items: center;
-    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-    color: #414141;
-    padding: 8px 16px;
-    border-radius: 25px;
-    font-size: 13px;
-    font-weight: 500;
-    border: 2px solid #e9ecef;
+    background: #ffffff;
+    color: #111111;
+    padding: 16px 34px;
+    border-radius: 40px;
+    font-size: 16px;
+    font-weight: 700;
+    border: 3px solid #111111;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: background 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.18);
     position: relative;
     overflow: hidden;
-    transform: translateY(0) scale(1);
+    letter-spacing: 0.5px;
+    animation: badge-float 4s ease-in-out infinite;
 }
+
+.tech-badge-filter:nth-child(2)  { animation-delay: 0.4s; }
+.tech-badge-filter:nth-child(3)  { animation-delay: 0.8s; }
+.tech-badge-filter:nth-child(4)  { animation-delay: 1.2s; }
+.tech-badge-filter:nth-child(5)  { animation-delay: 1.6s; }
+.tech-badge-filter:nth-child(6)  { animation-delay: 2.0s; }
+.tech-badge-filter:nth-child(7)  { animation-delay: 2.4s; }
+.tech-badge-filter:nth-child(8)  { animation-delay: 2.8s; }
+.tech-badge-filter:nth-child(9)  { animation-delay: 3.2s; }
+.tech-badge-filter:nth-child(10) { animation-delay: 3.6s; }
 
 .tech-badge-filter::before {
     content: '';
@@ -974,8 +996,8 @@ a:focus {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
-    transition: left 0.5s;
+    background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.12), transparent);
+    transition: left 0.7s ease;
 }
 
 .tech-badge-filter:hover::before {
@@ -983,30 +1005,30 @@ a:focus {
 }
 
 .tech-badge-filter:hover {
-    background: linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%);
+    background: linear-gradient(135deg, #1d4ed8 0%, #3B82F6 100%);
     color: #ffffff;
-    border-color: #3B82F6;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+    border-color: #1d4ed8;
+    box-shadow: 0 8px 24px rgba(59, 130, 246, 0.45);
+    animation-play-state: paused;
 }
 
 .tech-badge-filter.active {
-    background: linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%);
+    background: linear-gradient(135deg, #1d4ed8 0%, #3B82F6 100%);
     color: #ffffff;
-    border-color: #3B82F6;
-    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
-    transform: translateY(-1px);
+    border-color: #1d4ed8;
+    box-shadow: 0 8px 24px rgba(59, 130, 246, 0.45);
+    animation-play-state: paused;
 }
 
 .tech-badge-filter i {
-    margin-right: 6px;
-    font-size: 14px;
-    transition: transform 0.3s ease;
+    margin-right: 10px;
+    font-size: 18px;
+    transition: transform 0.4s ease;
 }
 
 .tech-badge-filter:hover i,
 .tech-badge-filter.active i {
-    transform: scale(1.1);
+    transform: scale(1.2);
 }
 
 .clear-tech-filters {
@@ -1619,6 +1641,54 @@ a:focus {
 }
 
 /* Flip Card Styles */
+.project-card {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.1);
+    background: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 28px rgba(59,130,246,0.18);
+}
+
+.project-card .project-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.project-card .project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.05);
+}
+
+.project-card .project-title {
+    padding: 16px 18px;
+}
+
+.project-card .project-title h3 {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: #111;
+}
+
+.project-card .project-title p {
+    font-size: 13px;
+    color: #666;
+    margin: 0;
+}
+
 .flip-card {
     background-color: transparent;
     width: 100%;

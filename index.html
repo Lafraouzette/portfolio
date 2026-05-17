@@ -25,6 +25,50 @@
 </head>
 
 <style>
+    #space-canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    .hero .container-fluid,
+    .hero .hero-content {
+        position: relative;
+        z-index: 1;
+    }
+
+    #space-canvas-global {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    /* ── Service Sections ── */
+    .svc-section { padding: 40px 0; }
+    .svc-icon-col { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 14px; }
+    .svc-icon-wrap { width: 80px; height: 80px; border-radius: 20px; background: linear-gradient(135deg,#3B82F6,#60A5FA); display: inline-flex; align-items: center; justify-content: center; }
+    .svc-icon-wrap i { font-size: 2rem; color: #fff; }
+    .svc-body { padding-left: 30px; }
+    .svc-header { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 12px; }
+    .svc-header h3 { font-size: 1.4rem; font-weight: 700; color: #111; margin: 0; }
+    .svc-tag { background: #dbeafe; color: #3B82F6; font-size: 12px; font-weight: 600; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.5px; }
+    .svc-desc { color: #555; line-height: 1.75; font-size: 15px; margin-bottom: 18px; }
+    .svc-features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 30px; margin-bottom: 24px; }
+    .svc-feat { font-size: 14px; font-weight: 500; color: #333; }
+    .svc-feat i { color: #3B82F6; margin-right: 8px; font-size: 13px; }
+    .svc-cta { display: inline-flex; align-items: center; gap: 8px; background: #3B82F6; color: #fff; font-size: 14px; font-weight: 600; padding: 11px 26px; border-radius: 0; text-decoration: none; white-space: nowrap; transition: transform 0.25s, box-shadow 0.25s; }
+    .svc-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(59,130,246,0.3); color: #fff; text-decoration: none; }
+    .svc-divider { border: none; border-top: 1px solid #e9ecef; margin: 0; }
+    @media (max-width: 767px) { .svc-body { padding-left: 0; margin-top: 10px; } .svc-features-grid { grid-template-columns: 1fr; } }
+
     .member-img {
         border-radius: 20px;
         /* Ajoute une bordure arrondie */
@@ -65,10 +109,11 @@
 </style>
 
 <body data-spy="scroll" data-target=".navbar" data-offset="51">
+    <canvas id="space-canvas-global"></canvas>
     <!-- Nav Bar Start -->
     <div class="navbar navbar-expand-lg bg-light navbar-light">
         <div class="container-fluid">
-            <a href="index.html" class="navbar-brand">LAFRAOUZI</a>
+            <a href="index.html" class="navbar-brand"><i class="fas fa-keyboard" style="font-size:0.6em; vertical-align:middle; margin-right:6px;"></i></a>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -77,8 +122,9 @@
                 <div class="navbar-nav ml-auto">
                     <a href="#about" class="nav-item nav-link">About</a>
                     <a href="#experience" class="nav-item nav-link">My Resume</a>
+                    <a href="#skills" class="nav-item nav-link">Skills</a>
                     <a href="#portfolio" class="nav-item nav-link">Projets</a>
-                    <a href="services.html" class="nav-item nav-link">Services</a>
+                    <a href="#services" class="nav-item nav-link">Services</a>
                     <!--                     <a href="#contact" class="nav-item nav-link">Contact</a>
  -->
                 </div>
@@ -90,6 +136,7 @@
 
     <!-- Hero Start -->
     <div class="hero" id="home">
+        <canvas id="space-canvas"></canvas>
         <div class="container-fluid">
             <div class="row align-items-center">
                 <div class="hero-content">
@@ -97,11 +144,10 @@
                         <p>I'm</p>
                         <h1>LAFRAOUZI Mouhssine</h1>
                         <h2></h2>
-                        <div class="typed-text">software developer, network designer, DevOps engineer, System
-                            Administrator</div>
+                        <div class="typed-text">DevOps Engineer, AI Integration Engineer, Cloud Architect, Full-Stack Developer</div>
                     </div>
                     <div class="hero-btn">
-                        <a class="btn" href="">Contact Me</a>
+                        <a class="btn" href="mailto:lafraouzimouhssine@gmail.com">Contact Me</a>
                     </div>
                 </div>
 
@@ -122,34 +168,21 @@
                         <div class="section-header text-left">
                             <br>
                             <p>Learn About Me</p>
-                            <h2>software developer</h2>
+                            <h2>DevOps & AI Integration Engineer</h2>
 
                         </div>
                         <div class="about-text">
                             <p>
-                                My role as a software developer is to support individuals and organizations in the
-                                growth of their digital initiatives. I bring my expertise to bear to help them audit
-                                existing systems, optimize performance, and ensure the scalability of their
-                                projects.<br>
-                            <ul class="list-unstyled mb-3">
-                                <li><span class="fw-bold" style="color: #3B82F6;">Back-end:</span> <span
-                                        class="text-dark">Spring
-                                        Boot, Laravel</span></li>
-                                <li><span class="fw-bold" style="color: #3B82F6;">Front-end:</span> <span
-                                        class="text-dark">React
-                                        Native</span></li>
-                                <li><span class="fw-bold" style="color: #3B82F6;">Databases:</span> <span
-                                        class="text-dark">MySQL,
-                                        PostgreSQL</span></li>
-                                <li><span class="fw-bold" style="color: #3B82F6;">DevOps:</span> <span
-                                        class="text-dark">Docker,
-                                        Kubernetes</span></li>
-                            </ul>
+                                Ingénieur spécialisé en Cloud, DevOps et intégration de l'IA (LLMs / APIs). Je conçois et déploie des infrastructures robustes, automatise les pipelines CI/CD et intègre des solutions d'intelligence artificielle dans des applications métier concrètes.<br>
+
 
                             </p>
                         </div>
-                        <a class="btn" href="">SHOW PROJECTS</a>
+                        <a class="btn" href="#portfolio">VOIR MES PROJETS</a>
                     </div>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <img src="img/about.jpeg" alt="LAFRAOUZI Mouhssine" class="member-img img-fluid" style="max-width: 420px; width: 100%;">
                 </div>
             </div>
         </div>
@@ -166,148 +199,223 @@
                 <p>My Resume</p>
             </header>
             <div class="timeline">
-                <!-- Professional Experience -->
+                <!-- Professional Experience 1 — Current -->
                 <div class="timeline-item left wow slideInLeft" data-wow-delay="0.1s">
                     <div class="timeline-text">
-                        <div class="timeline-date">February 2025 - Present</div>
-                        <h2>Software Engineer</h2>
-                        <h4>Groupe DBM Maroc, RAMZO, Mohammédia | Morocco</h4>
-                        <p>Développement d'applications full-stack avec expertise en architecture sécurisée et
-                            intégration de solutions complètes.</p>
-                        <div class="skills-grid">
-                            <div class="skill-category">
-                                <strong><i class="fas fa-code" style="color: #3B82F6;"></i> Languages:</strong>
-                                <span style="color: #3B82F6;">Java <i class="fab fa-java"></i></span>,
-                                <span style="color: #3B82F6;">Python <i class="fab fa-python"></i></span>,
-                                <span style="color: #3B82F6;">C# <i class="fas fa-code"></i></span>
-                            </div>
-                            <div class="skill-category">
-                                <strong><i class="fas fa-layer-group" style="color: #3B82F6;"></i> Frameworks:</strong>
-                                <span style="color: #3B82F6;">Spring Boot <i class="fas fa-leaf"></i></span>,
-                                <span style="color: #3B82F6;">React <i class="fab fa-react"></i></span>,
-                                <span style="color: #3B82F6;">Angular <i class="fab fa-angular"></i></span>
-                            </div>
-                            <div class="skill-category">
-                                <strong><i class="fas fa-database" style="color: #3B82F6;"></i> Databases:</strong>
-                                <span style="color: #3B82F6;">MySQL</span>,
-                                <span style="color: #3B82F6;">PostgreSQL</span>,
-                                <span style="color: #3B82F6;">SQL</span>
-                            </div>
-                            <div class="skill-category">
-                                <strong><i class="fas fa-tools" style="color: #3B82F6;"></i> DevOps:</strong>
-                                <span style="color: #3B82F6;">Docker <i class="fab fa-docker"></i></span>,
-                                <span style="color: #3B82F6;">Git <i class="fab fa-git-alt"></i></span>,
-                                <span style="color: #3B82F6;">Jenkins <i class="fas fa-cogs"></i></span>
-                            </div>
-                            <div class="skill-category">
-                                <strong><i class="fas fa-project-diagram" style="color: #3B82F6;"></i> Modeling language
-                                    for
-                                    software:</strong>
-                                <span style="color: #3B82F6;">UML</span>
-                            </div>
-                            <div class="skill-category">
-                                <strong><i class="fas fa-tasks" style="color: #3B82F6;"></i> Project
-                                    Management:</strong>
-                                <span style="color: #3B82F6;">Agile</span>,
-                                <span style="color: #3B82F6;">Scrum</span>,
-                                <span style="color: #3B82F6;">Kanban</span>,
-                                <span style="color: #3B82F6;">Feature-Driven Development (FDD)</span>
-                            </div>
-                        </div>
-                        <!--                         <a href="files/MST-RSI.pdf" class="btn btn-danger" download>Voir mes projets <i class="fas fa-download"></i></a>
- -->
+                        <div class="timeline-date">Juin 2025 – Présent</div>
+                        <h2>Ingénieur DEVOPS</h2>
+                        <h4>DBM Group | Mohammedia, Maroc</h4>
+                        <p>Conception et développement de solutions full-stack avec intégration IA, déploiement d'infrastructure cloud/DevOps et coordination technique des projets Agile.</p>
+                    </div>
+                </div>
+                <!-- Professional Experience 2 — Internship DBM -->
+                <div class="timeline-item right wow slideInRight" data-wow-delay="0.1s">
+                    <div class="timeline-text">
+                        <div class="timeline-date">Février 2025 – Juin 2025</div>
+                        <h2>Stagiaire – Ingénieur Logiciel</h2>
+                        <h4>DBM Group | Mohammedia, Maroc</h4>
+                        <p>Développement d'une solution de gestion, programmation et diffusion de contenus (image, vidéo, web, PDF, Word, YouTube…) en temps réel sur environnements Android et Windows.</p>
+                    </div>
+                </div>
+                <!-- Professional Experience 3 — Internship FSTS -->
+                <div class="timeline-item left wow slideInLeft" data-wow-delay="0.1s">
+                    <div class="timeline-text">
+                        <div class="timeline-date">Juin 2024 – Août 2024</div>
+                        <h2>Stagiaire – Développeur Logiciel</h2>
+                        <h4>FSTS | Settat, Maroc</h4>
+                        <p>Développement d'une solution SaaS pour la gestion des salles de sport.</p>
+                    </div>
+                </div>
+                <!-- Professional Experience 4 — Internship OCP -->
+                <div class="timeline-item right wow slideInRight" data-wow-delay="0.1s">
+                    <div class="timeline-text">
+                        <div class="timeline-date">Avril 2023 – Juin 2023</div>
+                        <h2>Stagiaire – Développeur Logiciel</h2>
+                        <h4>OCP | Khouribga, Maroc</h4>
+                        <p>Développement d'un système de gestion des stocks et d'approvisionnement, optimisant les inventaires et flux logistiques.</p>
                     </div>
                 </div>
                 <!-- Education: Master's Degree -->
-                <div class="timeline-item right wow slideInRight" data-wow-delay="0.1s">
+                <div class="timeline-item left wow slideInLeft" data-wow-delay="0.1s">
                     <div class="timeline-text">
-                        <div class="timeline-date">2023 - 2025</div>
-                        <h2>Master of Science and Technology</h2>
-                        <h4>Faculty of Science and Technology, Settat | Morocco</h4>
-                        <p>Formation avancée en développement logiciel et sécurité des réseaux & systèmes.</p>
-                        <div class="education-highlights">
-                            <div class="highlight-item">
-                                <i class="fas fa-code" style="color: #3B82F6;"></i>
-                                <span>Technologies modernes: <span style="color: #3B82F6;">Spring Boot</span>, <span
-                                        style="color: #3B82F6;">React</span>, <span
-                                        style="color: #3B82F6;">SQL</span></span>
-                            </div>
-                            <div class="highlight-item">
-                                <i class="fas fa-cogs" style="color: #3B82F6;"></i>
-                                <span>Gestion d'infrastructure et intégration de solutions complètes</span>
-                            </div>
-                            <div class="highlight-item">
-                                <i class="fas fa-shield-alt" style="color: #3B82F6;"></i>
-                                <span>Sécurité des réseaux et systèmes</span>
-                            </div>
-
-                        </div>
+                        <div class="timeline-date">2023 – 2025</div>
+                        <h2>BAC+5 — Master Scientifique et Technique</h2>
+                        <h4>Réseaux et Systèmes Informatiques — FST Settat | Maroc</h4>
+                        <p>Formation avancée en développement logiciel, sécurité des réseaux & systèmes, DevOps et intégration cloud.</p>
                         <a href="files/MST-RSI.pdf" class="btn"
                             style="background-color: #3B82F6; color: white; border: none;" download>Détails du programme
                             <i class="fas fa-download"></i></a>
                     </div>
                 </div>
                 <!-- Education: Bachelor's Degree -->
-                <div class="timeline-item left wow slideInLeft" data-wow-delay="0.1s">
+                <div class="timeline-item right wow slideInRight" data-wow-delay="0.1s">
                     <div class="timeline-text">
-                        <div class="timeline-date">2022 - 2023</div>
-                        <h2>Bachelor of Science and Technology</h2>
-                        <h4>Faculty of Science and Technology, Beni Mellal | Morocco</h4>
-                        <p>Formation solide en informatique préparant des professionnels IT généralistes.</p>
-                        <div class="education-highlights">
-                            <div class="highlight-item">
-                                <i class="fas fa-code" style="color: #3B82F6;"></i>
-                                <span>Technologies modernes : <span style="color: #3B82F6;">SQL</span>, <span
-                                        style="color: #3B82F6;">Java</span>, <span style="color: #3B82F6;">Spring
-                                        Boot</span></span>
-                            </div>
-                            <div class="highlight-item">
-                                <i class="fas fa-laptop-code" style="color: #3B82F6;"></i>
-                                <span>Modélisation et développement logiciel</span>
-                            </div>
-                            <div class="highlight-item">
-                                <i class="fas fa-database" style="color: #3B82F6;"></i>
-                                <span>Gestion et manipulation de bases de données</span>
-                            </div>
-                            <div class="highlight-item">
-                                <i class="fas fa-network-wired" style="color: #3B82F6;"></i>
-                                <span>Réseaux informatiques et infrastructure</span>
-                            </div>
-
-                        </div>
+                        <div class="timeline-date">2022 – 2023</div>
+                        <h2>BAC+3 — Licence Scientifique et Technique</h2>
+                        <h4>Informatique — FST Beni Mellal | Maroc</h4>
+                        <p>Formation solide en informatique couvrant le développement logiciel, les bases de données et les réseaux informatiques.</p>
                         <a href="files/lst_info.pdf" class="btn"
                             style="background-color: #3B82F6; color: white; border: none;" download>Détails du programme
                             <i class="fas fa-download"></i></a>
                     </div>
                 </div>
                 <!-- Education: DEUST -->
-                <div class="timeline-item right wow slideInRight" data-wow-delay="0.1s">
+                <div class="timeline-item left wow slideInLeft" data-wow-delay="0.1s">
                     <div class="timeline-text">
-                        <div class="timeline-date">2019 - 2022</div>
-                        <h2>DEUST Mathematics, Computer Science, Physics, Chemistry (MIPC)</h2>
-                        <h4>Faculty of Science and Technology, Beni Mellal | Morocco</h4>
-                        <p>Formation pluridisciplinaire en sciences exactes avec spécialisation en informatique.</p>
-                        <div class="education-highlights">
-                            <div class="highlight-item">
-                                <i class="fas fa-code" style="color: #3B82F6;"></i>
-                                <span>Fondamentaux de la programmation</span>
-                            </div>
-                            <div class="highlight-item">
-                                <i class="fas fa-calculator" style="color: #3B82F6;"></i>
-                                <span>Mathématiques et algorithmes</span>
-                            </div>
-
-                            <div class="highlight-item">
-                                <i class="fas fa-atom" style="color: #3B82F6;"></i>
-                                <span>Physique et chimie appliquées</span>
-                            </div>
-                        </div>
+                        <div class="timeline-date">2019 – 2022</div>
+                        <h2>DEUST — Mathématiques, Informatique, Physique, Chimie (MIPC)</h2>
+                        <h4>FST Beni Mellal | Maroc</h4>
+                        <p>Formation pluridisciplinaire en sciences exactes avec bases en programmation, mathématiques et algorithmes.</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- Job Experience End -->
+
+    <!-- Skills Start -->
+    <div class="skills-section wow fadeInUp" data-wow-delay="0.1s" id="skills" style="padding: 80px 0; background: #f8faff;">
+        <div class="container">
+            <div class="section-header text-center" style="margin-bottom: 50px;">
+                <p class="text-uppercase" style="color:#3B82F6; font-weight:700; letter-spacing:2px; font-size:13px;">Mes compétences</p>
+                <h2 style="font-weight:700; color:#111; font-size:2rem;">My Skills</h2>
+            </div>
+            <style>
+                .skill-group { margin-bottom: 36px; }
+                .skill-group-title { display: flex; align-items: center; gap: 10px; font-size: 1rem; font-weight: 700; color: #111; margin-bottom: 14px; }
+                .skill-group-title i { color: #3B82F6; font-size: 1.1rem; }
+                .skill-pills { display: flex; flex-wrap: wrap; gap: 10px; }
+                .skill-pill { background: #fff; border: 1.5px solid #dbeafe; color: #1e3a5f; font-size: 13px; font-weight: 600; padding: 6px 16px; border-radius: 30px; transition: all 0.25s; white-space: nowrap; }
+                .skill-pill:hover { background: #3B82F6; color: #fff; border-color: #3B82F6; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(59,130,246,0.25); }
+                .skills-divider { border: none; border-top: 1px solid #e2e8f0; margin: 10px 0 26px; }
+            </style>
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <!-- Langages -->
+                    <div class="skill-group wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="skill-group-title"><i class="fas fa-code"></i> Langages de Programmation</div>
+                        <div class="skill-pills">
+                            <span class="skill-pill">Java</span>
+                            <span class="skill-pill">JavaScript</span>
+                            <span class="skill-pill">Python</span>
+                            <span class="skill-pill">PHP</span>
+                            <span class="skill-pill">C++</span>
+                            <span class="skill-pill">C#</span>
+                            <span class="skill-pill">Swift</span>
+                            <span class="skill-pill">Dart</span>
+                        </div>
+                    </div>
+                    <hr class="skills-divider">
+
+                    <!-- Frameworks -->
+                    <div class="skill-group wow fadeInUp" data-wow-delay="0.15s">
+                        <div class="skill-group-title"><i class="fas fa-layer-group"></i> Frameworks & Libraries</div>
+                        <div class="skill-pills">
+                            <span class="skill-pill">Spring Boot</span>
+                            <span class="skill-pill">Spring AI</span>
+                            <span class="skill-pill">Spring Security</span>
+                            <span class="skill-pill">Angular</span>
+                            <span class="skill-pill">React</span>
+                            <span class="skill-pill">Flutter</span>
+                            <span class="skill-pill">Android Studio</span>
+                        </div>
+                    </div>
+                    <hr class="skills-divider">
+
+                    <!-- Bases de données -->
+                    <div class="skill-group wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="skill-group-title"><i class="fas fa-database"></i> Bases de Données & Cache</div>
+                        <div class="skill-pills">
+                            <span class="skill-pill">MySQL</span>
+                            <span class="skill-pill">PostgreSQL</span>
+                            <span class="skill-pill">SQLite</span>
+                            <span class="skill-pill">MariaDB</span>
+                            <span class="skill-pill">H2</span>
+                            <span class="skill-pill">Redis</span>
+                        </div>
+                    </div>
+                    <hr class="skills-divider">
+
+                    <!-- Sécurité -->
+                    <div class="skill-group wow fadeInUp" data-wow-delay="0.25s">
+                        <div class="skill-group-title"><i class="fas fa-shield-alt"></i> Sécurité & Gestion des Accès</div>
+                        <div class="skill-pills">
+                            <span class="skill-pill">Keycloak</span>
+                            <span class="skill-pill">LDAP</span>
+                            <span class="skill-pill">WireGuard VPN</span>
+                            <span class="skill-pill">iptables</span>
+                            <span class="skill-pill">Fail2Ban</span>
+                            <span class="skill-pill">DMZ</span>
+                            <span class="skill-pill">2FA</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <!-- DevOps & CI/CD -->
+                    <div class="skill-group wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="skill-group-title"><i class="fas fa-infinity"></i> DevOps & CI/CD</div>
+                        <div class="skill-pills">
+                            <span class="skill-pill">Docker</span>
+                            <span class="skill-pill">Docker Compose</span>
+                            <span class="skill-pill">Docker Swarm</span>
+                            <span class="skill-pill">Kubernetes</span>
+                            <span class="skill-pill">GitHub Actions</span>
+                            <span class="skill-pill">Jenkins</span>
+                            <span class="skill-pill">Git / GitHub</span>
+                        </div>
+                    </div>
+                    <hr class="skills-divider">
+
+                    <!-- Infrastructure & Cloud -->
+                    <div class="skill-group wow fadeInUp" data-wow-delay="0.15s">
+                        <div class="skill-group-title"><i class="fas fa-server"></i> Infrastructure & Cloud</div>
+                        <div class="skill-pills">
+                            <span class="skill-pill">Proxmox</span>
+                            <span class="skill-pill">Proxmox Backup</span>
+                            <span class="skill-pill">Terraform</span>
+                            <span class="skill-pill">Nginx</span>
+                            <span class="skill-pill">Prometheus</span>
+                            <span class="skill-pill">Grafana</span>
+                        </div>
+                    </div>
+                    <hr class="skills-divider">
+
+                    <!-- AI & Computer Vision -->
+                    <div class="skill-group wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="skill-group-title"><i class="fas fa-brain"></i> Intelligence Artificielle & LLM</div>
+                        <div class="skill-pills">
+                            <span class="skill-pill">LangChain4J</span>
+                            <span class="skill-pill">RAG</span>
+                            <span class="skill-pill">RASA</span>
+                            <span class="skill-pill">Llama (LLM)</span>
+                            <span class="skill-pill">Groq</span>
+                            <span class="skill-pill">YOLO</span>
+                            <span class="skill-pill">OpenCV</span>
+                            <span class="skill-pill">ML Kit</span>
+                            <span class="skill-pill">TensorFlow</span>
+                        </div>
+                    </div>
+                    <hr class="skills-divider">
+
+                    <!-- API & Outils -->
+                    <div class="skill-group wow fadeInUp" data-wow-delay="0.25s">
+                        <div class="skill-group-title"><i class="fas fa-tools"></i> API, Tests & Gestion de Projet</div>
+                        <div class="skill-pills">
+                            <span class="skill-pill">OpenAPI / Swagger</span>
+                            <span class="skill-pill">Postman</span>
+                            <span class="skill-pill">Agile / Scrum</span>
+                            <span class="skill-pill">JIRA</span>
+                            <span class="skill-pill">MS Project</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Skills End -->
+
     <!-- Blog Start -->
     <style>
         .blog-img img {
@@ -325,19 +433,10 @@
             <div class="section-header text-center wow zoomIn" data-wow-delay="0.1s">
                 <h2>Mes Projets</h2>
             </div>
-            <div class="row">
-                <div class="col-12">
-                    <ul id="portfolio-filter">
-                        <li data-filter="*" class="filter-active">Tous</li>
-                        <li data-filter=".filter-stage">Stages</li>
-                        <li data-filter=".filter-personal">Projets Personnels</li>
-                        <li data-filter=".filter-ai">Intelligence Artificielle</li>
-                    </ul>
-                </div>
-            </div>
+           
 
             <!-- Technology Filter Badges -->
-            <div class="tech-filter-section">
+           <!--  <div class="tech-filter-section">
                 <h5><i class="fas fa-code"></i> Filtrer par technologie</h5>
                 <div class="tech-badges-container">
                     <span class="tech-badge-filter" data-filter-tech="Laravel"><i class="fab fa-laravel"></i>
@@ -374,309 +473,255 @@
                 <button class="clear-tech-filters" id="clearTechFiltersBtn">
                     <i class="fas fa-times"></i> Effacer les filtres
                 </button>
-            </div>
+            </div> -->
 
             <div class="row portfolio-container">
-                <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-stage wow fadeInUp" data-wow-delay="0.2s"
-                    data-tech="Spring Boot MySQL React Docker">
-                    <div class="flip-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                                <div class="project-image">
-                                    <img src="img/blog-3.jpg" alt="Stage Affichage Dynamique">
-                                </div>
-                                <div class="project-title">
-                                    <h3>Affichage dynamique</h3>
-                                    <p>Système d'affichage dynamique et gestion de contenu</p>
-                                    <div class="project-meta">
-                                        <p><i class="fas fa-map-marker-alt"></i> Groupe DBM Maroc - Mohammedia</p>
-                                        <p><i class="far fa-calendar-alt"></i> Février - Juillet 2025</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flip-card-back">
-                                <div class="technologies">
-                                    <h4>Technologies utilisées</h4>
-                                    <div class="tech-list">
-                                        <span class="tech-item"><i class="fas fa-leaf"></i> Spring Boot</span>
-                                        <span class="tech-item"><i class="fas fa-database"></i> MySQL</span>
-                                        <span class="tech-item"><i class="fab fa-react"></i> React</span>
-                                        <span class="tech-item"><i class="fab fa-docker"></i> Docker</span>
-                                        <span class="tech-item"><i class="fab fa-android"></i> Android (Kotlin)</span>
-                                        <span class="tech-item"><i class="fab fa-windows"></i> C# (.NET Windows)</span>
-                                        <span class="tech-item"><i class="fas fa-code"></i> XML</span>
-                                    </div>
-                                    <a href="files/AccentDS.pdf" class="btn"
-                                        style="background-color: #3B82F6; color: white; border: none;" download>
-                                        Voir le rapport <i class="fas fa-download"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Stage 1 - OCP -->
 
-
-                <!-- Stage 2 - FST -->
-                <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-stage filter-ai wow fadeInUp"
-                    data-wow-delay="0.1s" data-tech="Python OpenCV TensorFlow Computer Vision Machine Learning">
-                    <div class="flip-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                                <div class="project-image">
-                                    <img src="img/blog-2.png" alt="Stage Détection des objets">
-                                </div>
-                                <div class="project-title">
-                                    <h3>Détection d'objets</h3>
-                                    <p>Application IA de détection d'objets en temps réel</p>
-                                    <div class="project-meta">
-                                        <p><i class="fas fa-map-marker-alt"></i> FST - Settat, Maroc</p>
-                                        <p><i class="far fa-calendar-alt"></i> Juin - Août 2024</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flip-card-back">
-                                <div class="technologies">
-                                    <h4>Technologies utilisées</h4>
-                                    <div class="tech-list">
-                                        <span class="tech-item"><i class="fab fa-python"></i> Python</span>
-                                        <span class="tech-item"><i class="fas fa-eye"></i> OpenCV</span>
-                                        <span class="tech-item"><i class="fas fa-brain"></i> TensorFlow</span>
-                                        <span class="tech-item"><i class="fas fa-camera"></i> Computer Vision</span>
-                                        <span class="tech-item"><i class="fas fa-chart-line"></i> Machine
-                                            Learning</span>
-                                        <span class="tech-item"><i class="fas fa-robot"></i> YOLO</span>
-                                    </div>
-                                    <a href="files/RapportDetectionObject.pdf" class="btn"
-                                        style="background-color: #3B82F6; color: white; border: none;" download>
-                                        Voir le rapport <i class="fas fa-download"></i>
-                                    </a>
-                                </div>
-                            </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-stage filter-ai wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="project-card">
+                        <div class="project-image"><img src="img/blog-2.png" alt="Détection d'objets"></div>
+                        <div class="project-title">
+                            <h3>Détection d'objets</h3>
+                            <p>Application IA de détection d'objets en temps réel</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Stage 3 - DBM -->
-                <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-stage wow fadeInUp" data-wow-delay="0.0s"
-                    data-tech="Laravel PHP MySQL Bootstrap">
-                    <div class="flip-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                                <div class="project-image">
-                                    <img src="img/blog-1.png" alt="Stage OCP">
-                                </div>
-                                <div class="project-title">
-                                    <h3>Gestion de stocks</h3>
-                                    <p>Application de gestion de stocks industriels</p>
-                                    <div class="project-meta">
-                                        <p><i class="fas fa-map-marker-alt"></i> OCP - Khouribga, Maroc</p>
-                                        <p><i class="far fa-calendar-alt"></i> Avril - Juin 2023</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flip-card-back">
-                                <div class="technologies">
-                                    <h4>Technologies utilisées</h4>
-                                    <div class="tech-list">
-                                        <span class="tech-item"><i class="fab fa-laravel"></i> Laravel</span>
-                                        <span class="tech-item"><i class="fab fa-php"></i> PHP</span>
-                                        <span class="tech-item"><i class="fas fa-database"></i> MySQL</span>
-                                        <span class="tech-item"><i class="fab fa-bootstrap"></i> Bootstrap</span>
-                                        <span class="tech-item"><i class="fas fa-key"></i> Laravel Breeze</span>
-                                    </div>
-                                    <a href="files/DGP.pptx" class="btn"
-                                        style="background-color: #3B82F6; color: white; border: none;" download>
-                                        Voir le rapport <i class="fas fa-download"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- ChatBOT des voitures -->
-                <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-personal filter-ai wow fadeInUp"
-                    data-wow-delay="0.3s" data-tech="IBM Watson HTML5 CSS3 JavaScript">
-                    <div class="flip-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                                <div class="project-image">
-                                    <img src="img/chatbot.png" alt="ChatBOT des voitures">
-                                </div>
-                                <div class="project-title">
-                                    <h3>ChatBOT des voitures</h3>
-                                    <p>Assistant intelligent pour l'automobile</p>
-                                </div>
-                            </div>
-                            <div class="flip-card-back">
-                                <div class="technologies">
-                                    <h4>Technologies utilisées</h4>
-                                    <div class="tech-list">
-                                        <span class="tech-item"><i class="fab fa-ibm"></i> IBM Watson Assistant</span>
-                                        <span class="tech-item"><i class="fab fa-html5"></i> HTML5</span>
-                                        <span class="tech-item"><i class="fab fa-css3-alt"></i> CSS3</span>
-                                        <span class="tech-item"><i class="fab fa-js"></i> JavaScript</span>
-                                    </div>
-                                    <a href="https://drive.google.com/file/d/1wq5g0WK8IohtjriJdBk1v9A40DA2xX-C/view?usp=sharing"
-                                        class="btn" style="background-color: #3B82F6; color: white; border: none;"
-                                        target="_blank">
-                                        Voir le projet <i class="fas fa-external-link-alt"></i>
-                                    </a>
-                                </div>
-                            </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-stage wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="project-card">
+                        <div class="project-image"><img src="img/blog-1.png" alt="Gestion de stocks"></div>
+                        <div class="project-title">
+                            <h3>Gestion de stocks</h3>
+                            <p>Application de gestion de stocks industriels</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- GYM Management -->
-                <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-personal wow fadeInUp"
-                    data-wow-delay="0.4s" data-tech="PHP MySQL HTML5 CSS3 JavaScript Laravel Bootstrap">
-                    <div class="flip-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                                <div class="project-image">
-                                    <img src="img/gym.png" alt="GYM Management">
-                                </div>
-                                <div class="project-title">
-                                    <h3>GYM Management</h3>
-                                    <p>Système de gestion de salle de sport</p>
-                                </div>
-                            </div>
-                            <div class="flip-card-back">
-                                <div class="technologies">
-                                    <h4>Technologies utilisées</h4>
-                                    <div class="tech-list">
-                                        <span class="tech-item"><i class="fab fa-php"></i> PHP</span>
-                                        <span class="tech-item"><i class="fas fa-database"></i> MySQL</span>
-                                        <span class="tech-item"><i class="fab fa-html5"></i> HTML5</span>
-                                        <span class="tech-item"><i class="fab fa-css3-alt"></i> CSS3</span>
-                                        <span class="tech-item"><i class="fab fa-js"></i> JavaScript</span>
-                                        <span class="tech-item"><i class="fab fa-laravel"></i> Laravel</span>
-                                        <span class="tech-item"><i class="fab fa-bootstrap"></i> Bootstrap</span>
-                                    </div>
-                                    <a href="http://fithubmanager.kesug.com/" class="btn"
-                                        style="background-color: #3B82F6; color: white; border: none;" target="_blank">
-                                        Voir le projet <i class="fas fa-external-link-alt"></i>
-                                    </a>
-                                </div>
-                            </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-personal filter-ai wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="project-card">
+                        <div class="project-image"><img src="img/chatbot.png" alt="ChatBOT des voitures"></div>
+                        <div class="project-title">
+                            <h3>ChatBOT des voitures</h3>
+                            <p>Assistant intelligent pour l'automobile</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Détection de masque -->
-                <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-personal filter-ai wow fadeInUp"
-                    data-wow-delay="0.5s" data-tech="Python OpenCV TensorFlow Computer Vision Machine Learning">
-                    <div class="flip-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                                <div class="project-image">
-                                    <img src="img/masque.png" alt="Détection de masque">
-                                </div>
-                                <div class="project-title">
-                                    <h3>Détection de masque</h3>
-                                    <p>IA pour la détection de port de masque</p>
-                                </div>
-                            </div>
-                            <div class="flip-card-back">
-                                <div class="technologies">
-                                    <h4>Technologies utilisées</h4>
-                                    <div class="tech-list">
-                                        <span class="tech-item"><i class="fab fa-python"></i> Python</span>
-                                        <span class="tech-item"><i class="fas fa-eye"></i> OpenCV</span>
-                                        <span class="tech-item"><i class="fas fa-brain"></i> TensorFlow</span>
-                                        <span class="tech-item"><i class="fas fa-camera"></i> Computer Vision</span>
-                                        <span class="tech-item"><i class="fas fa-chart-line"></i> Machine
-                                            Learning</span>
-                                    </div>
-                                    <a href="https://docs.google.com/presentation/d/1Y-XKfFVuw6_MdKNh-MOhUznHyeBwTEUW/edit?usp=drive_link&ouid=108265901572249784785&rtpof=true&sd=true"
-                                        class="btn" style="background-color: #3B82F6; color: white; border: none;"
-                                        target="_blank">
-                                        Voir le projet <i class="fas fa-external-link-alt"></i>
-                                    </a>
-                                </div>
-                            </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-personal wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="project-card">
+                        <div class="project-image"><img src="img/gym.png" alt="GYM Management"></div>
+                        <div class="project-title">
+                            <h3>GYM Management</h3>
+                            <p>Système de gestion de salle de sport</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Gestion projets de recherche -->
-                <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-personal wow fadeInUp"
-                    data-wow-delay="0.6s" data-tech="Java Spring Boot MySQL HTML5 CSS3 JavaScript">
-                    <div class="flip-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                                <div class="project-image">
-                                    <img src="img/gpr.png" alt="Gestion projets de recherche">
-                                </div>
-                                <div class="project-title">
-                                    <h3>Gestion projets de recherche</h3>
-                                    <p>Plateforme de gestion de projets académiques</p>
-                                </div>
-                            </div>
-                            <div class="flip-card-back">
-                                <div class="technologies">
-                                    <h4>Technologies utilisées</h4>
-                                    <div class="tech-list">
-                                        <span class="tech-item"><i class="fab fa-java"></i> Java</span>
-                                        <span class="tech-item"><i class="fas fa-leaf"></i> Spring Boot</span>
-                                        <span class="tech-item"><i class="fas fa-database"></i> MySQL</span>
-                                        <span class="tech-item"><i class="fab fa-html5"></i> HTML5</span>
-                                        <span class="tech-item"><i class="fab fa-css3-alt"></i> CSS3</span>
-                                        <span class="tech-item"><i class="fab fa-js"></i> JavaScript</span>
-                                    </div>
-                                    <a href="files/Rapport_Gestion_des_projets_de_recherche.pdf" class="btn"
-                                        style="background-color: #3B82F6; color: white; border: none;" download>
-                                        Voir le rapport <i class="fas fa-download"></i>
-                                    </a>
-                                </div>
-                            </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-personal filter-ai wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="project-card">
+                        <div class="project-image"><img src="img/masque.png" alt="Détection de masque"></div>
+                        <div class="project-title">
+                            <h3>Détection de masque</h3>
+                            <p>IA pour la détection de port de masque</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Quizz JEE -->
-                <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-personal wow fadeInUp"
-                    data-wow-delay="0.7s" data-tech="Java EE MySQL">
-                    <div class="flip-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                                <div class="project-image">
-                                    <img src="img/quiz.png" alt="Quizz JEE">
-                                </div>
-                                <div class="project-title">
-                                    <h3>Quizz JEE</h3>
-                                    <p>Application de quiz en Java EE</p>
-                                </div>
-                            </div>
-                            <div class="flip-card-back">
-                                <div class="technologies">
-                                    <h4>Technologies utilisées</h4>
-                                    <div class="tech-list">
-                                        <span class="tech-item"><i class="fab fa-java"></i> Java EE</span>
-                                        <span class="tech-item"><i class="fas fa-database"></i> MySQL</span>
-                                        <span class="tech-item"><i class="fas fa-server"></i> Apache Tomcat</span>
-                                        <span class="tech-item"><i class="fab fa-html5"></i> JSP</span>
-                                        <span class="tech-item"><i class="fas fa-layer-group"></i> MVC</span>
-                                        <span class="tech-item"><i class="fas fa-database"></i> JDBC</span>
-                                    </div>
-                                    <a href="https://drive.google.com/file/d/1M0Czz67SdqaIq87gpmSQNVLOvOx6X-Hu/view?usp=drive_link"
-                                        class="btn" style="background-color: #3B82F6; color: white; border: none;"
-                                        target="_blank">
-                                        Voir le projet <i class="fas fa-external-link-alt"></i>
-                                    </a>
-                                </div>
-                            </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-personal wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="project-card">
+                        <div class="project-image"><img src="img/gpr.png" alt="Gestion projets de recherche"></div>
+                        <div class="project-title">
+                            <h3>Gestion projets de recherche</h3>
+                            <p>Plateforme de gestion de projets académiques</p>
                         </div>
                     </div>
                 </div>
+
+                <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-personal wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="project-card">
+                        <div class="project-image"><img src="img/quiz.png" alt="Quizz JEE"></div>
+                        <div class="project-title">
+                            <h3>Quizz JEE</h3>
+                            <p>Application de quiz en Java EE</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-stage wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="project-card">
+                        <div class="project-image"><img src="img/accent.png" alt="ACCENT"></div>
+                        <div class="project-title">
+                            <h3>ACCENT</h3>
+                            <p>Site B2B pour la marque marocaine ACCENT</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-stage wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="project-card">
+                        <div class="project-image"><img src="img/solution_daffichage_dynamique.png" alt="Screen ADS"></div>
+                        <div class="project-title">
+                            <h3>Screen ADS</h3>
+                            <p>Solution complète d'affichage dynamique multi-écrans avec CMS web</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-stage wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="project-card">
+                        <div class="project-image"><img src="img/smq_dbm.png" alt="Portail SMQ"></div>
+                        <div class="project-title">
+                            <h3>Portail SMQ</h3>
+                            <p>Système de Management de la Qualité conforme ISO 9001</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-stage wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="project-card">
+                        <div class="project-image"><img src="img/support_dbm.png" alt="HelpDesk Support"></div>
+                        <div class="project-title">
+                            <h3>HelpDesk Support</h3>
+                            <p>Plateforme de gestion de tickets et support client</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-stage wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="project-card">
+                        <div class="project-image"><img src="img/agx.png" alt="AGX E-commerce"></div>
+                        <div class="project-title">
+                            <h3>AGX — E-commerce</h3>
+                            <p>Boutique en ligne spécialisée en matériel gaming & informatique</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
     <!-- Portfolio End -->
 
 
+    <!-- Services Start -->
+    <div class="service" id="services" style="padding: 80px 0 60px;">
+        <div class="container">
+            <div class="section-header text-center wow zoomIn" data-wow-delay="0.1s" style="margin-bottom: 60px;">
+                <p class="text-uppercase" style="color:#3B82F6; font-weight:700; letter-spacing:2px; font-size:13px;">Ce que je propose</p>
+                <h2 style="font-weight:700; color:#111; font-size:2rem;">Solutions & expertises à votre service</h2>
+            </div>
+
+            <!-- Service 1 — Software Solutions -->
+            <div class="svc-section row align-items-start wow fadeInUp" data-wow-delay="0.1s">
+                <div class="col-lg-2 col-md-3 col-sm-12 svc-icon-col">
+                    <div class="svc-icon-wrap">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <a href="mailto:lafraouzimouhssine@gmail.com?subject=Devis Software Solutions" class="svc-cta mt-3">
+                        Demander un devis
+                    </a>
+                </div>
+                <div class="col-lg-10 col-md-9 col-sm-12 svc-body">
+                    <div class="svc-header">
+                        <h3>Développement logiciel</h3>
+                        <span class="svc-tag">Web · Mobile · Back-end</span>
+                    </div>
+                    <p class="svc-desc">Je conçois et développe des solutions logicielles sur-mesure, de l'architecture jusqu'au déploiement en production. Chaque projet est pensé pour offrir une expérience fluide, intuitive et adaptée à vos besoins métier.</p>
+                    <div class="svc-features-grid">
+                        <div class="svc-feat"><i class="fas fa-check"></i> Applications web & mobile sur-mesure</div>
+                        <div class="svc-feat"><i class="fas fa-check"></i> Interfaces modernes et responsive (UX/UI)</div>
+                        <div class="svc-feat"><i class="fas fa-check"></i> Back-end sécurisé et scalable</div>
+                        <div class="svc-feat"><i class="fas fa-check"></i> Intégration cloud et déploiement CI/CD</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="svc-divider"></div>
+
+            <!-- Service 2 — Network Architecture -->
+            <div class="svc-section row align-items-start wow fadeInUp" data-wow-delay="0.2s">
+                <div class="col-lg-2 col-md-3 col-sm-12 svc-icon-col">
+                    <div class="svc-icon-wrap" style="background: linear-gradient(135deg,#0ea5e9,#38bdf8);">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <a href="mailto:lafraouzimouhssine@gmail.com?subject=Devis Architecture Réseau" class="svc-cta mt-3" style="background:#0ea5e9;">
+                        Demander un devis
+                    </a>
+                </div>
+                <div class="col-lg-10 col-md-9 col-sm-12 svc-body">
+                    <div class="svc-header">
+                        <h3>Architecture réseau</h3>
+                        <span class="svc-tag" style="background:#e0f2fe; color:#0ea5e9;">LAN · WAN · Sécurité</span>
+                    </div>
+                    <p class="svc-desc">Je conçois et déploie des infrastructures réseau fiables et sécurisées, adaptées aux environnements professionnels, tout en assurant la connectivité et la protection de vos données.</p>
+                    <div class="svc-features-grid">
+                        <div class="svc-feat"><i class="fas fa-check"></i> Conception d'architecture réseau (LAN/WAN)</div>
+                        <div class="svc-feat"><i class="fas fa-check"></i> VLAN, pare-feux, segmentation, routage</div>
+                        <div class="svc-feat"><i class="fas fa-check"></i> Monitoring, sécurité et haute disponibilité</div>
+                        <div class="svc-feat"><i class="fas fa-check"></i> VPN et accès distant sécurisé</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="svc-divider"></div>
+
+            <!-- Service 3 — Training & Mentoring -->
+            <div class="svc-section row align-items-start wow fadeInUp" data-wow-delay="0.3s">
+                <div class="col-lg-2 col-md-3 col-sm-12 svc-icon-col">
+                    <div class="svc-icon-wrap" style="background: linear-gradient(135deg,#8b5cf6,#a78bfa);">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <a href="mailto:lafraouzimouhssine@gmail.com?subject=Devis Formation & Mentoring" class="svc-cta mt-3" style="background:#8b5cf6;">
+                        Demander un devis
+                    </a>
+                </div>
+                <div class="col-lg-10 col-md-9 col-sm-12 svc-body">
+                    <div class="svc-header">
+                        <h3>Formation & Mentoring</h3>
+                        <span class="svc-tag" style="background:#ede9fe; color:#8b5cf6;">Dev · DevOps · Accompagnement</span>
+                    </div>
+                    <p class="svc-desc">Formations personnalisées en développement web et DevOps. De l'initiation aux technologies avancées, je vous accompagne à votre rythme avec des projets concrets et un suivi individualisé.</p>
+                    <div class="svc-features-grid">
+                        <div class="svc-feat"><i class="fas fa-check"></i> Formations pratiques sur projets réels</div>
+                        <div class="svc-feat"><i class="fas fa-check"></i> Suivi personnalisé et mentoring</div>
+                        <div class="svc-feat"><i class="fas fa-check"></i> Certificats de fin de formation</div>
+                        <div class="svc-feat"><i class="fas fa-check"></i> Support post-formation inclus</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="svc-divider"></div>
+
+            <!-- Service 4 — AI & LLM -->
+            <div class="svc-section row align-items-start wow fadeInUp" data-wow-delay="0.4s">
+                <div class="col-lg-2 col-md-3 col-sm-12 svc-icon-col">
+                    <div class="svc-icon-wrap" style="background: linear-gradient(135deg,#f59e0b,#fbbf24);">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <a href="mailto:lafraouzimouhssine@gmail.com?subject=Devis AI & LLM Integration" class="svc-cta mt-3" style="background:#f59e0b;">
+                        Demander un devis
+                    </a>
+                </div>
+                <div class="col-lg-10 col-md-9 col-sm-12 svc-body">
+                    <div class="svc-header">
+                        <h3>Intelligence Artificielle & LLM</h3>
+                        <span class="svc-tag" style="background:#fef3c7; color:#d97706;">IA · LLM · Automatisation</span>
+                    </div>
+                    <p class="svc-desc">J'intègre des modèles de langage (LLM) et des solutions d'IA dans vos applications existantes ou nouveaux projets. Chatbots intelligents, analyse de données, génération de contenu, automatisation de workflows — je transforme vos besoins métier en fonctionnalités IA concrètes et exploitables.</p>
+                    <div class="svc-features-grid">
+                        <div class="svc-feat"><i class="fas fa-check"></i> Intégration d'API LLM (OpenAI, Claude, Mistral…)</div>
+                        <div class="svc-feat"><i class="fas fa-check"></i> Chatbots et assistants intelligents sur-mesure</div>
+                        <div class="svc-feat"><i class="fas fa-check"></i> RAG sur vos données internes</div>
+                        <div class="svc-feat"><i class="fas fa-check"></i> Automatisation de workflows avec agents IA</div>
+                        <div class="svc-feat"><i class="fas fa-check"></i> Analyse et extraction de données non structurées</div>
+                        <div class="svc-feat"><i class="fas fa-check"></i> Fine-tuning et prompt engineering avancé</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Services End -->
 
 
     <!-- Banner Start -->
@@ -765,7 +810,7 @@
                     <h3>Rabat, Maroc</h3>
                     <div class="footer-menu">
                         <p>+212 7 16 40 85 59</p>
-                        <p>Lafraouzi.contact@gmail.com</p>
+                        <p>lafraouzimouhssine@gmail.com</p>
                     </div>
                     <div class="footer-social">
                         <a href=""><i class="fab fa-facebook-f"></i></a>
@@ -822,6 +867,163 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+
+    <!-- Space background animation -->
+    <script>
+        /* Global white-bg particles */
+        (function () {
+            const canvas = document.getElementById('space-canvas-global');
+            const ctx = canvas.getContext('2d');
+            let particles = [];
+            const COUNT = 80;
+
+            function resize() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+
+            function mkParticle() {
+                const size = 0.8 + Math.random() * 2;
+                return {
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    size: size,
+                    speedX: (Math.random() - 0.5) * 0.2,
+                    speedY: -(0.1 + Math.random() * 0.3),
+                    opacity: 0.08 + Math.random() * 0.18,
+                    pulse: Math.random() * Math.PI * 2,
+                    pulseSpeed: 0.006 + Math.random() * 0.014,
+                    hue: Math.random() > 0.6 ? '59,130,246' : '100,149,237'
+                };
+            }
+
+            function init() {
+                particles = Array.from({ length: COUNT }, mkParticle);
+            }
+
+            function animate(t) {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach(function (p) {
+                    p.x += p.speedX;
+                    p.y += p.speedY;
+                    if (p.y < -4) p.y = canvas.height + 4;
+                    if (p.x < -4) p.x = canvas.width + 4;
+                    if (p.x > canvas.width + 4) p.x = -4;
+
+                    const pulse = Math.sin(t * p.pulseSpeed + p.pulse) * 0.35 + 0.65;
+                    const r = p.size * pulse;
+                    const op = p.opacity * pulse;
+
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(' + p.hue + ',' + op + ')';
+                    ctx.fill();
+
+                    const grd = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, r * 3);
+                    grd.addColorStop(0, 'rgba(' + p.hue + ',' + (op * 0.3) + ')');
+                    grd.addColorStop(1, 'rgba(' + p.hue + ',0)');
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, r * 3, 0, Math.PI * 2);
+                    ctx.fillStyle = grd;
+                    ctx.fill();
+                });
+                requestAnimationFrame(animate);
+            }
+
+            resize();
+            init();
+            animate(0);
+            window.addEventListener('resize', function () { resize(); init(); });
+        })();
+
+        /* Hero particles */
+        (function () {
+            const canvas = document.getElementById('space-canvas');
+            const ctx = canvas.getContext('2d');
+            let particles = [];
+            const PARTICLE_COUNT = 120;
+
+            function resize() {
+                canvas.width = canvas.offsetWidth;
+                canvas.height = canvas.offsetHeight;
+            }
+
+            function randomBetween(a, b) {
+                return a + Math.random() * (b - a);
+            }
+
+            function createParticle() {
+                const size = randomBetween(1, 3.5);
+                return {
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    size: size,
+                    baseSize: size,
+                    speedX: randomBetween(-0.25, 0.25),
+                    speedY: randomBetween(-0.15, -0.45),
+                    opacity: randomBetween(0.3, 0.9),
+                    pulseSpeed: randomBetween(0.005, 0.02),
+                    pulseOffset: Math.random() * Math.PI * 2,
+                    color: Math.random() > 0.7 ? '#93c5fd' : '#ffffff'
+                };
+            }
+
+            function initParticles() {
+                particles = [];
+                for (let i = 0; i < PARTICLE_COUNT; i++) {
+                    particles.push(createParticle());
+                }
+            }
+
+            function drawParticle(p, time) {
+                const pulse = Math.sin(time * p.pulseSpeed + p.pulseOffset) * 0.4 + 0.6;
+                const currentSize = p.baseSize * pulse;
+                const currentOpacity = p.opacity * pulse;
+
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, currentSize, 0, Math.PI * 2);
+                ctx.fillStyle = p.color;
+                ctx.globalAlpha = currentOpacity;
+                ctx.fill();
+
+                if (currentSize > 1.8) {
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, currentSize * 2, 0, Math.PI * 2);
+                    const glow = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, currentSize * 2);
+                    glow.addColorStop(0, p.color);
+                    glow.addColorStop(1, 'transparent');
+                    ctx.fillStyle = glow;
+                    ctx.globalAlpha = currentOpacity * 0.25;
+                    ctx.fill();
+                }
+
+                ctx.globalAlpha = 1;
+            }
+
+            let animFrame;
+            function animate(time) {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach(function (p) {
+                    p.x += p.speedX;
+                    p.y += p.speedY;
+                    if (p.y < -5) p.y = canvas.height + 5;
+                    if (p.x < -5) p.x = canvas.width + 5;
+                    if (p.x > canvas.width + 5) p.x = -5;
+                    drawParticle(p, time);
+                });
+                animFrame = requestAnimationFrame(animate);
+            }
+
+            resize();
+            initParticles();
+            animate(0);
+
+            window.addEventListener('resize', function () {
+                resize();
+                initParticles();
+            });
+        })();
+    </script>
 
     <!-- Contact Form EmailJS Integration -->
     <script>
